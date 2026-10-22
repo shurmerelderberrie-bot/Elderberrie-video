@@ -2,19 +2,43 @@ import { Composition, Folder } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
-import { SocialVideo, socialVideoSchema } from "./Social/SocialVideo";
+import "./Social/fonts";
+import {
+  CardShowcase,
+  cardShowcaseSchema,
+  getShowcaseDuration,
+  type CardShowcaseProps,
+} from "./Social/CardShowcase";
 
-// Shared settings for Facebook & Instagram: 30fps, 15 seconds
-const SOCIAL_FPS = 30;
-const SOCIAL_DURATION = 15 * SOCIAL_FPS;
-const socialDefaults = {
-  headline: "Elderberrie",
-  subline: "Your message goes here",
-  cta: "Shop now",
-  backgroundColor: "#3B1F4A",
-  accentColor: "#8E4D9E",
-  textColor: "#FFF8EE",
+// Shared content for the Facebook & Instagram videos. Edit here, or live in
+// the Studio sidebar (npm run dev).
+const showcaseDefaults: CardShowcaseProps = {
+  tagline: "pretty little bits for every occasion",
+  cards: [
+    {
+      image: "brand/card-holly-jolly.png",
+      label: "Have a holly, jolly Christmas",
+    },
+    { image: "brand/card-jolly-bright-1.png", label: "Jolly and bright" },
+    { image: "brand/card-today-you-are-one.png", label: "Today you are one" },
+  ],
+  stepsTitle: "Print at home cards",
+  steps: [
+    { title: "Download", text: "Your PDF arrives the moment you order" },
+    { title: "Print", text: "A5 at 100% scale on 250-300gsm card" },
+    { title: "Fold", text: "Fold down the centre and write your message" },
+    { title: "Give", text: "Ready to gift, post or pop through a letterbox" },
+  ],
+  stepsFooter: "No post, no waiting.",
+  outroTitle: "Find us on Etsy",
+  shop: "ElderberrieBlue",
+  instagram: "@elderberrieblueofficial",
+  cta: "Shop the cards",
 };
+
+const showcaseMetadata = ({ props }: { props: CardShowcaseProps }) => ({
+  durationInFrames: getShowcaseDuration(props),
+});
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -25,35 +49,38 @@ export const RemotionRoot: React.FC = () => {
         {/* Reels & Stories (FB + IG) */}
         <Composition
           id="Reel"
-          component={SocialVideo}
-          schema={socialVideoSchema}
-          durationInFrames={SOCIAL_DURATION}
-          fps={SOCIAL_FPS}
+          component={CardShowcase}
+          schema={cardShowcaseSchema}
+          calculateMetadata={showcaseMetadata}
+          durationInFrames={getShowcaseDuration(showcaseDefaults)}
+          fps={30}
           width={1080}
           height={1920}
-          defaultProps={socialDefaults}
+          defaultProps={showcaseDefaults}
         />
         {/* Feed post, portrait 4:5 (FB + IG) */}
         <Composition
           id="Feed"
-          component={SocialVideo}
-          schema={socialVideoSchema}
-          durationInFrames={SOCIAL_DURATION}
-          fps={SOCIAL_FPS}
+          component={CardShowcase}
+          schema={cardShowcaseSchema}
+          calculateMetadata={showcaseMetadata}
+          durationInFrames={getShowcaseDuration(showcaseDefaults)}
+          fps={30}
           width={1080}
           height={1350}
-          defaultProps={socialDefaults}
+          defaultProps={showcaseDefaults}
         />
         {/* Feed post, square 1:1 (FB + IG) */}
         <Composition
           id="Square"
-          component={SocialVideo}
-          schema={socialVideoSchema}
-          durationInFrames={SOCIAL_DURATION}
-          fps={SOCIAL_FPS}
+          component={CardShowcase}
+          schema={cardShowcaseSchema}
+          calculateMetadata={showcaseMetadata}
+          durationInFrames={getShowcaseDuration(showcaseDefaults)}
+          fps={30}
           width={1080}
           height={1080}
-          defaultProps={socialDefaults}
+          defaultProps={showcaseDefaults}
         />
       </Folder>
       <Folder name="Elements">
@@ -98,7 +125,6 @@ export const RemotionRoot: React.FC = () => {
           titleColor: "#000000",
         }}
       />
-
     </>
   );
 };

@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.537",
+    "@remotion/fonts": "4.0.537",
     "@remotion/zod-types": "4.0.537",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -29,9 +30,9 @@
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
-    "render:reel": "remotion render Reel out/reel.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
-    "render:feed": "remotion render Feed out/feed.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
-    "render:square": "remotion render Square out/square.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
+    "render:reel": "remotion render Reel out/elderberrie-blue-reel.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
+    "render:feed": "remotion render Feed out/elderberrie-blue-feed.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
+    "render:square": "remotion render Square out/elderberrie-blue-square.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
     "render:social": "npm run render:reel && npm run render:feed && npm run render:square"
   },
   "allowScripts": {
