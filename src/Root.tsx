@@ -5,6 +5,11 @@ import { Title } from "./HelloWorld/Title";
 import "./Social/fonts";
 import { CardPost, cardPostSchema } from "./Social/CardPost";
 import {
+  PRODUCT_REEL_FRAMES,
+  ProductReel,
+  productReelSchema,
+} from "./Social/ProductReel";
+import {
   CardShowcase,
   cardShowcaseSchema,
   getShowcaseDuration,
@@ -120,6 +125,22 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={{
             titleText: "Welcome to Remotion",
             titleColor: "#000000",
+          }}
+        />
+        {/* Reel for a single card: listing photo, mockup video, end card */}
+        <Composition
+          id="ProductReel"
+          component={ProductReel}
+          schema={productReelSchema}
+          durationInFrames={PRODUCT_REEL_FRAMES}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{
+            title: "A berry happy birthday",
+            photo: "products/berry.jpg",
+            video: "products/berry.mp4",
+            shop: "elderberrieblue.etsy.com",
           }}
         />
       </Folder>
