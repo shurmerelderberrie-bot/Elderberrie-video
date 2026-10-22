@@ -1,8 +1,9 @@
-import { Composition, Folder } from "remotion";
+import { Composition, Folder, Still } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
 import "./Social/fonts";
+import { CardPost, cardPostSchema } from "./Social/CardPost";
 import {
   CardShowcase,
   cardShowcaseSchema,
@@ -81,6 +82,19 @@ export const RemotionRoot: React.FC = () => {
           width={1080}
           height={1080}
           defaultProps={showcaseDefaults}
+        />
+        {/* Still image for feed posts, 4:5 */}
+        <Still
+          id="CardPost"
+          component={CardPost}
+          schema={cardPostSchema}
+          width={1080}
+          height={1350}
+          defaultProps={{
+            image: "brand/card-holly-jolly.png",
+            title: "Have a holly, jolly Christmas",
+            footer: "Printable card · Instant download",
+          }}
         />
       </Folder>
       <Folder name="Elements">
