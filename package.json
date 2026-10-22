@@ -28,7 +28,11 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "render:reel": "remotion render Reel out/reel.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
+    "render:feed": "remotion render Feed out/feed.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
+    "render:square": "remotion render Square out/square.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
+    "render:social": "npm run render:reel && npm run render:feed && npm run render:square"
   },
   "allowScripts": {
     "esbuild": false
