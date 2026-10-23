@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lesson graphics</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --stage: #0c1530;
+    --stage-raised: #142048;
+    --stage-line: #2a3a74;
+    --ink: #eef1fb;
+    --muted: #a3aed3;
+    --amber: #f2a63c;
+    --teal: #86c9cc;
+    --on-amber: #1a1206;
+    --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --font-body: "Hanken Grotesk", "Segoe UI", Arial, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #222; font-family: var(--font-body); color: var(--ink); }
+  .frame { position: relative; overflow: hidden; background: var(--stage); margin: 0 0 40px; }
+  .feed { width: 1080px; height: 1350px; }
+  .story { width: 1080px; height: 1920px; }
+
+  .photo { position: absolute; inset: 0 0 auto 0; background-size: cover; }
+  .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,21,48,0) 32%, rgba(12,21,48,0.72) 60%, rgba(12,21,48,0.96) 82%, #0c1530 100%); }
+  .feed .photo { height: 800px; background-image: url("src/feed.jpg"); background-position: 50% 8%; }
+  .story .photo { height: 1180px; background-image: url("src/story.jpg"); background-position: 50% 0%; }
+
+  .tag {
+    position: absolute; top: 52px; left: 60px;
+    font-family: var(--font-mono); font-size: 26px; letter-spacing: 0.08em; text-transform: uppercase;
+    background: rgba(12,21,48,0.8); color: var(--teal); padding: 12px 20px; border-radius: 10px;
+  }
+  .story .tag { top: 120px; }
+
+  .copy { position: absolute; left: 60px; right: 60px; bottom: 56px; display: grid; gap: 22px; }
+  .story .copy { bottom: 150px; gap: 34px; }
+  .name { font-family: var(--font-mono); font-size: 28px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  h1 {
+    font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
+    font-size: 132px; line-height: 0.88; letter-spacing: 0.005em;
+  }
+  .story h1 { font-size: 150px; }
+  h1 .amp { color: var(--amber); }
+  .where { font-family: var(--font-display); font-weight: 700; font-size: 50px; line-height: 1.05; color: var(--teal); text-transform: uppercase; letter-spacing: 0.02em; }
+  .story .where { font-size: 56px; }
+
+  .row { display: flex; gap: 18px; flex-wrap: wrap; }
+  .pill { font-family: var(--font-mono); font-size: 26px; padding: 10px 20px; border: 2px solid var(--stage-line); border-radius: 999px; }
+
+  .prices { display: flex; gap: 18px; }
+  .price { flex: 1; border-radius: 18px; padding: 20px 26px; border: 2px solid var(--stage-line); display: flex; align-items: baseline; gap: 14px; }
+  .price.hot { background: var(--amber); border-color: var(--amber); color: var(--on-amber); }
+  .price b { font-family: var(--font-display); font-weight: 900; font-size: 92px; line-height: 0.9; }
+  .price span { font-family: var(--font-mono); font-size: 28px; }
+
+  .creds { font-size: 29px; line-height: 1.4; color: var(--ink); }
+  .creds i { font-style: normal; color: var(--amber); padding: 0 8px; }
+  .story .creds { font-size: 34px; }
+
+  .contact { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 2px solid var(--stage-line); padding-top: 24px; }
+  .contact .email { font-family: var(--font-mono); font-size: 34px; font-weight: 500; }
+  .contact .cta { font-weight: 700; font-size: 28px; background: var(--amber); color: var(--on-amber); padding: 14px 26px; border-radius: 999px; white-space: nowrap; }
+  .story .contact { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .story .contact .email { font-size: 44px; }
+  .story .contact .cta { font-size: 34px; padding: 18px 32px; }
+  .social { font-size: 28px; color: var(--muted); }
+  .story .social { font-size: 32px; }
+</style>
+</head>
+<body>
+
+<div class="frame feed" id="feed">
+  <div class="photo"></div>
+  <div class="tag">Now taking new students</div>
+  <div class="copy">
+    <div class="name">Joseph Shurmer · Music lessons</div>
+    <h1>Guitar, singing <span class="amp">&amp;</span> drums</h1>
+    <div class="where">Isle of Wight or online · Beginner to intermediate</div>
+    <div class="prices">
+      <div class="price"><b>£20</b><span>30 min</span></div>
+      <div class="price hot"><b>£35</b><span>1 hour</span></div>
+    </div>
+    <div class="creds">Nearly 20 years leading worship<i>·</i>Grade 7 drums<i>·</i>Vocally trained</div>
+    <div class="contact">
+      <div>
+        <div class="email">Josephshurmer@hotmail.co.uk</div>
+        <div class="social">or find me on social media</div>
+      </div>
+      <div class="cta">Book a lesson</div>
+    </div>
+  </div>
+</div>
+
+<div class="frame story" id="story">
+  <div class="photo"></div>
+  <div class="tag">Now taking new students</div>
+  <div class="copy">
+    <div class="name">Joseph Shurmer · Music lessons</div>
+    <h1>Guitar, singing <span class="amp">&amp;</span> drums</h1>
+    <div class="where">Isle of Wight or online<br>Beginner to intermediate</div>
+    <div class="row">
+      <span class="pill">Acoustic guitar</span><span class="pill">Vocals</span><span class="pill">Drums (your kit)</span>
+    </div>
+    <div class="prices">
+      <div class="price"><b>£20</b><span>30 min</span></div>
+      <div class="price hot"><b>£35</b><span>1 hour</span></div>
+    </div>
+    <div class="creds">Leading worship since age 12<i>·</i>Grade 7 drums<br>Vocally trained<i>·</i>Nearly 20 years' experience</div>
+    <div class="contact">
+      <div class="email">Josephshurmer@hotmail.co.uk</div>
+      <div class="cta">Message me to book</div>
+      <div class="social">or find me on social media: Joseph Shurmer</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
