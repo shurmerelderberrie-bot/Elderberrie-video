@@ -18,7 +18,7 @@ Hi everyone, I'm Joseph. I'm taking on new students for:
 
 Guitar, singing and worship leader sessions can be in person on the Island or online.
 
-A bit about me: I started leading worship at 12 and have been playing, singing and leading worship teams for nearly 20 years. Through directing Lionheart, I've worked closely with worship teams around the country. I'm Grade 7 on drums, vocally trained, and I've been teaching and mentoring for a good few years.
+A bit about me: I started leading worship at 12 and have been playing, singing and leading worship teams for nearly 20 years. I also direct Lionheart, a Christian charity and festival, where I bring in worship teams from around the country and support them behind the scenes, so I've seen worship from the organiser's side as well as the stage. I'm Grade 7 on drums, vocally trained, and I've been teaching and mentoring for a good few years.
 
 💷 £20 for 30 minutes
 💷 £35 for 1 hour
@@ -40,7 +40,7 @@ Acoustic guitar, singing and drum lessons on the Isle of Wight or online. Beginn
 Plus worship leader mentoring.
 
 ✔️ Nearly 20 years playing, singing and leading worship
-✔️ Directing Lionheart, working with worship teams around the country
+✔️ Director of Lionheart, a Christian charity and festival hosting worship teams from around the country
 ✔️ Grade 7 drums
 ✔️ Vocally trained
 
