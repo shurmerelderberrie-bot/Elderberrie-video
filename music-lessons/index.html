@@ -1,11 +1,11 @@
 <title>Joseph Shurmer Music Lessons</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Acoustic guitar, singing and drum lessons on the Isle of Wight and online. Beginner to intermediate. £20 for 30 minutes, £35 for an hour.">
+<meta name="description" content="Acoustic guitar, singing and drum lessons, plus worship leader training and mentoring, on the Isle of Wight and online. £20 for 30 minutes, £35 for an hour.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
 <style>
-  /* Layout: a gig-poster hero beside the stage photo, then three lesson cards that each carry a piece of real notation, prices, story, contact. One committed stage-light look. */
+  /* Layout: a gig-poster hero beside the stage photo, then four offer cards that each carry a piece of real notation, prices, story, contact. One committed stage-light look. */
   :root {
     --stage: #0c1530;        /* deep stage blue, from the photos */
     --stage-raised: #142048;
@@ -97,6 +97,15 @@
     letter-spacing: 0.005em;
   }
   .hero h1 .amp { color: var(--amber); }
+  .hero h1 .plus {
+    display: block;
+    margin-top: 0.2em;
+    font-size: 0.5em;
+    line-height: 1;
+    font-weight: 800;
+    color: var(--amber);
+    letter-spacing: 0.01em;
+  }
   .hero h1 .where {
     display: block;
     margin-top: 0.18em;
@@ -192,7 +201,7 @@
   /* Lesson cards */
   .lessons {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
   .lesson {
@@ -322,6 +331,22 @@
     animation: play 2.4s steps(8, end) infinite;
   }
   @keyframes play { from { transform: translateX(0); } to { transform: translateX(800%); } }
+
+  /* Setlist */
+  .setlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
+  .setlist li {
+    display: grid;
+    grid-template-columns: 1.2em minmax(0, 1fr) 3.4em 3.2em;
+    gap: 8px;
+    align-items: center;
+    padding: 5px 9px;
+    border-radius: 4px;
+    background: var(--stage-raised);
+  }
+  .setlist .n { color: var(--muted); }
+  .setlist .key { color: var(--amber); font-weight: 500; }
+  .setlist .bpm { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+  .setlist li.pad { background: transparent; border: 1px dashed var(--stage-line); }
 
   @media (prefers-reduced-motion: reduce) {
     .breath-bar .cursor, .playhead { animation: none; }
@@ -474,7 +499,6 @@
   }
 
   @media (max-width: 900px) {
-    .lessons { grid-template-columns: minmax(0, 1fr); }
     .about { grid-template-columns: minmax(0, 1fr); }
   }
   @media (max-width: 760px) {
@@ -482,6 +506,7 @@
     .hero-photo { order: -1; }
     .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 30%; }
     .steps { grid-template-columns: minmax(0, 1fr); }
+    .lessons { grid-template-columns: minmax(0, 1fr); }
     section { padding-block: 48px; }
   }
   @media (max-width: 480px) {
@@ -493,7 +518,7 @@
 <header class="masthead">
   <div class="wrap">
     <span class="wordmark">Joseph Shurmer</span>
-    <span class="eyebrow">Music lessons · Isle of Wight &amp; online</span>
+    <span class="eyebrow">Lessons &amp; mentoring · Isle of Wight &amp; online</span>
   </div>
 </header>
 
@@ -502,12 +527,13 @@
     <div class="wrap">
       <div class="hero-copy">
         <span class="eyebrow">Now taking new students</span>
-        <h1>Guitar, singing <span class="amp">&amp;</span> drums<span class="where">Lessons on the Isle of Wight or online</span></h1>
-        <p class="lede">Friendly one-to-one lessons for <strong>beginners and intermediate players</strong>, from someone who has spent <strong>nearly 20 years</strong> playing, singing and leading bands.</p>
+        <h1>Guitar, singing <span class="amp">&amp;</span> drums<span class="plus">+ Worship leader mentoring</span><span class="where">On the Isle of Wight or online</span></h1>
+        <p class="lede">Friendly one-to-one lessons for <strong>beginners and intermediate players</strong>, plus <strong>training and mentoring for worship leaders</strong>, from someone who has spent <strong>nearly 20 years</strong> playing, singing and leading worship teams.</p>
         <ul class="hero-facts">
           <li>Acoustic guitar</li>
           <li>Vocals</li>
           <li>Drums</li>
+          <li>Worship leading</li>
           <li>In person or online</li>
         </ul>
         <div class="cta-row">
@@ -525,9 +551,9 @@
   <section id="lessons">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">What I teach</span>
-        <h2>Three ways to start making music</h2>
-        <p>Every lesson is built around you: the songs you want to play, the style you like and the pace that suits you.</p>
+        <span class="eyebrow">What I offer</span>
+        <h2>Four ways to grow as a musician</h2>
+        <p>Every session is built around you: the songs you want to play, the style you like, the role you're growing into and the pace that suits you.</p>
       </div>
 
       <div class="lessons">
@@ -635,6 +661,30 @@
           </ul>
           <p class="note">Drum lessons happen at your place, so you'll need your own kit and a space to play.</p>
         </article>
+
+        <article class="lesson">
+          <div>
+            <h3>Worship leading</h3>
+            <div class="lesson-meta"><span class="chip">Training &amp; mentoring</span><span class="chip">Online or in person</span></div>
+          </div>
+          <div class="notation" aria-label="Example setlist with keys and tempos: upbeat opener in G at 132 bpm, build in A at 124 bpm, pad transition from A to D, reflective song in D at 68 bpm, response song in D at 72 bpm">
+            <ol class="setlist" aria-hidden="true">
+              <li><span class="n">1</span><span>Opener, upbeat</span><span class="key">G</span><span class="bpm">132</span></li>
+              <li><span class="n">2</span><span>Build</span><span class="key">A</span><span class="bpm">124</span></li>
+              <li class="pad"><span class="n">↓</span><span>Pad transition</span><span class="key">A→D</span><span class="bpm">free</span></li>
+              <li><span class="n">3</span><span>Reflective</span><span class="key">D</span><span class="bpm">68</span></li>
+              <li><span class="n">4</span><span>Response</span><span class="key">D</span><span class="bpm">72</span></li>
+            </ol>
+            <span class="notation-label">Session one: building a setlist that flows</span>
+          </div>
+          <ul>
+            <li>Planning setlists: song choice, keys that suit the congregation, and flow</li>
+            <li>Leading from the front: transitions, speaking between songs and reading the room</li>
+            <li>Running rehearsals and leading a band or worship team</li>
+            <li>Preparing well week to week, spiritually as well as musically</li>
+          </ul>
+          <p class="note">For new and growing worship leaders, from someone who has led worship since age 12.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -644,7 +694,7 @@
       <div class="section-head">
         <span class="eyebrow">Prices</span>
         <h2>Simple pricing</h2>
-        <p>One-to-one lessons, the same price for guitar, singing and drums.</p>
+        <p>One-to-one sessions, the same price for guitar, singing, drums and worship leader mentoring.</p>
       </div>
       <div class="prices">
         <div class="price">
@@ -661,6 +711,7 @@
       <ul class="price-notes">
         <li>Guitar and singing: online or in person on the Isle of Wight.</li>
         <li>Drums: in person at your place, on your own kit.</li>
+        <li>Worship leader training and mentoring: online or in person.</li>
         <li>Not sure which length suits you? Email me and we'll work it out.</li>
       </ul>
     </div>
@@ -697,7 +748,7 @@
         <h2>Getting started is easy</h2>
       </div>
       <ol class="steps">
-        <li><h3>Send me an email</h3><p>Tell me which instrument, roughly where you're at, and whether you'd like lessons online or in person.</p></li>
+        <li><h3>Send me an email</h3><p>Tell me what you'd like to work on, roughly where you're at, and whether you'd like sessions online or in person.</p></li>
         <li><h3>We pick a time</h3><p>We'll find a regular slot that fits around your week.</p></li>
         <li><h3>Start playing</h3><p>From the first lesson you'll be playing or singing something real.</p></li>
       </ol>
@@ -720,7 +771,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Joseph Shurmer · Guitar, singing &amp; drum lessons</span>
+    <span>Joseph Shurmer · Guitar, singing &amp; drum lessons · Worship leader mentoring</span>
     <span>Isle of Wight &amp; online</span>
   </div>
 </footer>
