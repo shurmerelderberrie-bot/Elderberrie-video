@@ -1,0 +1,441 @@
+<title>Lesson Booking Toolkit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: a working toolkit in the lesson page's stage-light palette. Booking flow first, then copy-ready email templates, then payment set-up and the legal checklist. */
+  :root {
+    --stage: #0c1530;
+    --stage-raised: #142048;
+    --stage-line: #26346a;
+    --ink: #eef1fb;
+    --muted: #a3aed3;
+    --amber: #f2a63c;
+    --teal: #86c9cc;
+    --on-amber: #1a1206;
+    --mark: rgba(242, 166, 60, 0.18);
+
+    --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --font-body: "Hanken Grotesk", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+    --step--1: 0.875rem;
+    --step-0: 1rem;
+    --step-1: 1.25rem;
+    --step-2: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+    --step-3: clamp(2.2rem, 1.5rem + 3vw, 3.6rem);
+    --radius: 14px;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { background: var(--stage); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: var(--amber); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+
+  .wrap {
+    max-width: 980px;
+    margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .eyebrow { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
+
+  header .wrap { display: grid; gap: 12px; padding-block: 40px 28px; }
+  header h1 { font-family: var(--font-display); font-weight: 900; font-size: var(--step-3); line-height: 0.92; text-transform: uppercase; }
+  header p { color: var(--muted); max-width: 64ch; }
+  .private { display: inline-block; justify-self: start; font-family: var(--font-mono); font-size: 0.78rem; padding: 4px 10px; border-radius: 6px; background: var(--stage-raised); color: var(--amber); }
+
+  nav .wrap { display: flex; flex-wrap: wrap; gap: 8px; padding-block: 0 8px; }
+  nav a { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink); text-decoration: none; padding: 6px 12px; border: 1px solid var(--stage-line); border-radius: 999px; }
+  nav a:hover { border-color: var(--amber); }
+
+  section .wrap { display: grid; gap: 22px; padding-block: 44px; }
+  section + section { border-top: 1px solid var(--stage-line); }
+  section h2 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; text-transform: uppercase; }
+  .lede { color: var(--muted); max-width: 64ch; }
+
+  /* Flow */
+  .flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: f; }
+  .flow li { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) auto; gap: 2px 14px; align-items: baseline; padding: 14px 16px; background: var(--stage-raised); border-radius: 10px; counter-increment: f; }
+  .flow li::before { content: counter(f); font-family: var(--font-display); font-weight: 900; font-size: 1.7rem; line-height: 1; color: var(--teal); }
+  .flow b { font-weight: 700; }
+  .flow span { color: var(--muted); font-size: 0.95rem; grid-column: 2; }
+  .flow a { grid-column: 3; grid-row: 1; font-family: var(--font-mono); font-size: 0.78rem; white-space: nowrap; }
+
+  /* Templates */
+  .templates { display: grid; gap: 18px; }
+  .tpl { border: 1px solid var(--stage-line); border-radius: var(--radius); overflow: hidden; min-width: 0; }
+  .tpl-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 16px 18px; background: var(--stage-raised); }
+  .tpl-head h3 { font-size: var(--step-1); font-weight: 700; }
+  .tpl-head p { color: var(--muted); font-size: var(--step--1); flex-basis: 100%; order: 3; }
+  .copy {
+    font: 600 0.9rem var(--font-body);
+    padding: 9px 16px;
+    border-radius: 999px;
+    border: 0;
+    background: var(--amber);
+    color: var(--on-amber);
+    cursor: pointer;
+  }
+  .copy:hover { background: #f7b858; }
+  .tpl pre {
+    margin: 0;
+    padding: 18px;
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: var(--ink);
+  }
+  .tpl mark { background: var(--mark); color: var(--amber); border-radius: 3px; padding: 0 2px; }
+
+  /* Lists */
+  .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .checks li { display: grid; gap: 4px; padding: 16px 18px; border: 1px solid var(--stage-line); border-radius: 10px; }
+  .checks b { font-weight: 700; }
+  .checks span { color: var(--muted); }
+  .note { font-size: var(--step--1); color: var(--muted); max-width: 70ch; }
+
+  footer .wrap { padding-block: 28px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+
+  @media (max-width: 560px) {
+    .flow li { grid-template-columns: 2.2rem minmax(0, 1fr); }
+    .flow a { grid-column: 2; grid-row: auto; }
+  }
+</style>
+
+<header>
+  <div class="wrap">
+    <span class="private">Private: just for you, don't share this link</span>
+    <h1>Lesson booking toolkit</h1>
+    <p>Everything you need between someone filling in the enquiry form and their first lesson: what to send and when, copy-ready emails, how to take payment, and the legal bits to tick off. Swap anything in <mark style="background:var(--mark);color:var(--amber);border-radius:3px;padding:0 2px">[brackets]</mark> before sending.</p>
+  </div>
+</header>
+
+<nav aria-label="Sections">
+  <div class="wrap">
+    <a href="#flow">Booking flow</a>
+    <a href="#emails">Emails</a>
+    <a href="#payments">Payments</a>
+    <a href="#legal">Legal checklist</a>
+  </div>
+</nav>
+
+<main>
+  <section id="flow">
+    <div class="wrap">
+      <span class="eyebrow">Step by step</span>
+      <h2>How a booking flows</h2>
+      <ol class="flow">
+        <li><b>An enquiry arrives</b><span>The page writes it for them, so it lands in your inbox with what they want, who it's for and when they're free.</span><a href="#t-reply">Email 1 or 2</a></li>
+        <li><b>Reply within a couple of days</b><span>Offer times, the price, and a taster. For churches, suggest a quick chat first.</span><a href="#t-reply">Email 1 or 2</a></li>
+        <li><b>Agree the details, then confirm in writing</b><span>Send the booking confirmation. It includes payment details and the cancellation rights the law says you must give.</span><a href="#t-confirm">Email 3, 4 or 5</a></li>
+        <li><b>The day before</b><span>Send a reminder, with payment details if they haven't paid yet.</span><a href="#t-reminder">Email 6</a></li>
+        <li><b>After a taster</b><span>Follow up the same day while it's fresh.</span><a href="#t-after">Email 7</a></li>
+        <li><b>If a payment is late</b><span>A friendly nudge. For churches, the invoice goes out after the session.</span><a href="#t-chase">Email 8 or 9</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="emails">
+    <div class="wrap">
+      <span class="eyebrow">Copy, edit, send</span>
+      <h2>Email templates</h2>
+      <p class="lede">Copy a template into your email, fill in the highlighted parts and send. Bank details only ever go in these emails, never on the public page.</p>
+
+      <div class="templates">
+        <article class="tpl" id="t-reply">
+          <div class="tpl-head"><h3>1. Reply to a lesson enquiry</h3><button class="copy" type="button">Copy</button><p>For guitar, singing, drums, mentoring or a taster.</p></div>
+<pre>Subject: Re: [their subject]
+
+Hi [Name],
+
+Thanks so much for getting in touch about [guitar lessons]. I'd love to help.
+
+I've got space on [day and time] or [day and time]. Lessons are £20 for 30 minutes or £35 for an hour, and if you'd like to try it first, a 30-minute taster is £10. [For drums: lessons are at your place, on your own kit.]
+
+Let me know what works for you and I'll send over a booking confirmation with all the details.
+
+Thanks,
+Joseph</pre>
+        </article>
+
+        <article class="tpl">
+          <div class="tpl-head"><h3>2. Reply to a church enquiry</h3><button class="copy" type="button">Copy</button><p>Suggest a chat first, keep the price open.</p></div>
+<pre>Subject: Re: [their subject]
+
+Hi [Name],
+
+Thanks for getting in touch about a session with [Church name]'s worship team. I'd love to come and help.
+
+It would be great to have a quick chat first, by phone, video or over a coffee, so I can hear about your team, what's going well and what you'd like help with. Then we can shape the session around that, whether it's a band practice, a workshop or a jam session.
+
+My usual price is £120 for up to 2 hours, including preparation and travel on the Island. Every church is different, though, so if budget is a concern just say and we'll work something out.
+
+Would [day and time] or [day and time] suit you for a chat?
+
+Thanks,
+Joseph</pre>
+        </article>
+
+        <article class="tpl" id="t-confirm">
+          <div class="tpl-head"><h3>3. Booking confirmation: lessons</h3><button class="copy" type="button">Copy</button><p>Send once the details are agreed. Keep the "right to cancel" part: the law requires it for bookings made by email or online.</p></div>
+<pre>Subject: Booking confirmed: [guitar] lessons with Joseph
+
+Hi [Name],
+
+Great to have you booked in! Here are the details.
+
+What: [Guitar] lessons, [30 minutes / 1 hour]
+Student: [Student name] [For under-18s: booked by [parent or guardian name]]
+When: [Day]s at [time], starting [date]
+Where: [Address / Online: I'll send the video link before each lesson]
+Price: £[20 / 35] per lesson
+
+HOW TO PAY
+Please pay by bank transfer before each lesson [or monthly in advance, by the 1st of each month].
+Account name: [Account name]
+Sort code: [Sort code]
+Account number: [Account number]
+Reference: [Student name]
+
+CANCELLING OR MOVING A LESSON
+Let me know at least 24 hours before and we'll rearrange it, or I'll refund you. Lessons cancelled with less than 24 hours' notice are usually charged. If I need to cancel, you'll get a new time or a full refund.
+
+YOUR RIGHT TO CANCEL
+You can cancel this booking within 14 days of today, for any reason, and get a full refund. Just email me to say so (or use the cancellation form below). If you'd like lessons to start within those 14 days, please reply "Yes, I'd like to start straight away". If you then cancel within the 14 days, you'll only pay for the lessons you've already had.
+
+[For under-18s: As [child's name] is under 18, I'll keep in touch with you rather than messaging them directly. For lessons at home, please make sure a parent or guardian is in the house. For online lessons, please be nearby.]
+
+Any questions, just ask. Looking forward to it!
+
+Joseph
+Josephshurmer@hotmail.co.uk
+
+---
+Cancellation form (only fill in and return this if you want to cancel)
+To: Joseph Shurmer, [your postal address], Josephshurmer@hotmail.co.uk
+I hereby give notice that I cancel my contract for the supply of the following service: [lessons]
+Ordered on: [date]
+Name:
+Address:
+Date:</pre>
+        </article>
+
+        <article class="tpl">
+          <div class="tpl-head"><h3>4. Booking confirmation: taster</h3><button class="copy" type="button">Copy</button><p>Shorter version for a one-off £10 taster.</p></div>
+<pre>Subject: Taster booked: [Day, date] at [time]
+
+Hi [Name],
+
+Lovely, you're booked in for a taster session!
+
+What: 30-minute [guitar / singing / drums / mentoring] taster
+When: [Day, date] at [time]
+Where: [Address / Online: I'll send the video link the day before]
+Price: £10
+
+Please pay by bank transfer before the session:
+Account name: [Account name]
+Sort code: [Sort code]
+Account number: [Account number]
+Reference: [Name] taster
+
+You can cancel within 14 days of booking for a full refund. As the taster is within that time, please reply "Yes, I'd like to go ahead" so I know you're happy for it to go ahead. If you need to move it, just let me know at least 24 hours before.
+
+[For drums: we'll use your kit, so make sure there's space to set up.]
+
+See you then!
+Joseph</pre>
+        </article>
+
+        <article class="tpl">
+          <div class="tpl-head"><h3>5. Booking confirmation: worship team session</h3><button class="copy" type="button">Copy</button><p>For churches and groups. They book as an organisation, so the 14-day consumer cancellation rule doesn't apply here.</p></div>
+<pre>Subject: Booking confirmed: worship team session at [Church name]
+
+Hi [Name],
+
+Thanks for booking me for a session with your worship team. Here's what we agreed.
+
+What: [Band practice / workshop / jam session] with your worship team
+When: [Date], [start time] to [finish time]
+Where: [Church name and address]
+Focus: [What we agreed, e.g. rehearsing well, transitions, bringing new people in]
+Fee: £[120 / agreed amount], including preparation and travel on the Island
+What I'll need: [Access from (time), PA and instruments set up, song list by (date)]
+
+PAYMENT
+I'll send an invoice after the session. Payment is due within 14 days, by bank transfer:
+Account name: [Account name]
+Sort code: [Sort code]
+Account number: [Account number]
+Reference: [Church name and date]
+
+IF PLANS CHANGE
+If you need to cancel or move the date, please let me know as early as you can. [Cancellations with less than 48 hours' notice may be charged at half the fee.] If I need to cancel, we'll find a new date at no extra cost.
+
+I'll follow your church's safeguarding policy while I'm with you, so please let me know anything I should be aware of.
+
+Looking forward to it!
+Joseph</pre>
+        </article>
+
+        <article class="tpl" id="t-reminder">
+          <div class="tpl-head"><h3>6. Reminder: the day before</h3><button class="copy" type="button">Copy</button><p>Leave out the payment line if they've already paid.</p></div>
+<pre>Subject: See you tomorrow!
+
+Hi [Name],
+
+Just a reminder that [your / [child's name]'s] [guitar] lesson is tomorrow, [day] at [time] [at your place / online: [link]].
+
+[If you haven't paid yet, the £[amount] can go to [Account name], sort code [Sort code], account [Account number], reference [Student name].]
+
+See you then!
+Joseph</pre>
+        </article>
+
+        <article class="tpl" id="t-after">
+          <div class="tpl-head"><h3>7. After a taster</h3><button class="copy" type="button">Copy</button><p>Send the same day. No pressure, just a clear next step.</p></div>
+<pre>Subject: Thanks for today!
+
+Hi [Name],
+
+Thanks for the taster today. It was great to [hear you sing / play together].
+
+From what we did, I'd suggest [30-minute / hour-long] lessons, focusing on [what to work on]. If you'd like to carry on, I've got [day and time] free each week.
+
+Just let me know and I'll send over a booking confirmation. No pressure at all.
+
+Joseph</pre>
+        </article>
+
+        <article class="tpl" id="t-chase">
+          <div class="tpl-head"><h3>8. Friendly payment reminder</h3><button class="copy" type="button">Copy</button><p>Warm, short, and leaves room for a conversation.</p></div>
+<pre>Subject: Quick reminder: payment for [date / invoice number]
+
+Hi [Name],
+
+Hope you're well. Just a quick reminder that the payment of £[amount] for [the lesson on date / invoice number] hasn't come through yet.
+
+Account name: [Account name]
+Sort code: [Sort code]
+Account number: [Account number]
+Reference: [Student name / invoice number]
+
+If you've already paid, thank you and please ignore this. If anything's tricky at the moment, just let me know and we'll sort something out.
+
+Thanks,
+Joseph</pre>
+        </article>
+
+        <article class="tpl">
+          <div class="tpl-head"><h3>9. Invoice for a church</h3><button class="copy" type="button">Copy</button><p>Paste into an email or a document and send after the session. Number invoices in order.</p></div>
+<pre>INVOICE
+
+Invoice number: [JS-001]
+Invoice date: [date]
+
+From:
+Joseph Shurmer
+[Your postal address]
+Josephshurmer@hotmail.co.uk
+
+To:
+[Church name]
+[Church address]
+[Contact name]
+
+Description: Worship team session ([band practice / workshop / jam session]) on [date], [start] to [finish]
+Amount: £[120]
+
+Total due: £[120]
+Payment due by: [date, 14 days after the invoice date]
+
+Please pay by bank transfer:
+Account name: [Account name]
+Sort code: [Sort code]
+Account number: [Account number]
+Reference: [Invoice number]
+
+Not VAT registered. Thank you!</pre>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="payments">
+    <div class="wrap">
+      <span class="eyebrow">Getting paid</span>
+      <h2>Payment set-up</h2>
+      <ul class="checks">
+        <li><b>Bank transfer is the simplest way to be paid</b><span>It's free, it leaves a record, and people are used to it. Ask for the student's name or the invoice number as the reference so you can match payments.</span></li>
+        <li><b>A separate account for lesson money</b><span>It isn't required, but it makes your tax return much easier.</span></li>
+        <li><b>When to take payment</b><span>Lessons and tasters: before the lesson, or monthly in advance for regular students. Churches: invoice after the session, due within 14 days.</span></li>
+        <li><b>Keep a simple record</b><span>A spreadsheet with date, student, amount and date paid, plus your costs (fuel, strings, insurance, adverts). That's all you need for Self Assessment.</span></li>
+        <li><b>Keep bank details private</b><span>They go in confirmation emails and invoices only, never on the public page or social media.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="legal">
+    <div class="wrap">
+      <span class="eyebrow">Doing it properly</span>
+      <h2>Legal checklist</h2>
+      <p class="lede">The page and templates already cover the consumer and privacy points. These are the things only you can do.</p>
+      <ul class="checks">
+        <li><b>Tell HMRC you're self-employed</b><span>Once your lesson income is over £1,000 in a tax year, register for Self Assessment by 5 October after that tax year ends. Keep records for at least 5 years after the 31 January filing deadline. <a href="https://www.gov.uk/working-for-yourself" rel="noopener">gov.uk/working-for-yourself</a></span></li>
+        <li><b>Always send the booking confirmation</b><span>People who book by email or online have a 14-day right to cancel. If you don't tell them in writing, that period can stretch to 12 months, and they may not have to pay for lessons already given. Templates 3 and 4 do this for you. If someone cancels, refund them within 14 days.</span></li>
+        <li><b>Clear, all-in prices and genuine reviews</b><span>Prices must include everything (no surprise extras), and reviews must be real and not edited to change their meaning. Both are now enforced under the Digital Markets, Competition and Consumers Act 2024. Your page already does this. Ask before using a reviewer's name.</span></li>
+        <li><b>Check the ICO data protection fee</b><span>Most small businesses that hold customer details on a phone or computer pay it. The smallest tier is £52 a year, and some sole traders are exempt. Take the ICO's quick self-assessment to find out. <a href="https://ico.org.uk/for-organisations/data-protection-fee/" rel="noopener">ico.org.uk data protection fee</a></span></li>
+        <li><b>Keep enquiries tidy</b><span>Delete enquiries that don't turn into bookings after a few months, keep your phone and email locked, and only keep what you need.</span></li>
+        <li><b>Your address</b><span>The E-Commerce Regulations ask business websites to show a postal address as well as your name and email. If you'd rather not show your home address, use a business address or PO box, and I'll add it to the page.</span></li>
+        <li><b>Safeguarding and DBS</b><span>For under-18s, keep contact through parents and have a parent in the house. You can apply for a basic DBS check yourself; an enhanced check usually comes through an organisation such as your church. For church sessions, follow that church's safeguarding policy. <a href="https://www.gov.uk/request-copy-criminal-record" rel="noopener">gov.uk basic DBS check</a></span></li>
+        <li><b>Public liability insurance</b><span>Covers you if someone is hurt or something is damaged during a lesson, especially in people's homes and churches. Musicians' Union membership includes it, or use a music teacher policy.</span></li>
+        <li><b>VAT</b><span>Nothing to do unless your turnover goes over £90,000 a year.</span></li>
+      </ul>
+      <p class="note">This is general guidance on UK rules as of late 2026, not legal advice. If anything is unclear for your situation, gov.uk and the ICO have free guidance, and Citizens Advice runs a business advice line.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Joseph Shurmer · Lesson booking toolkit · Private</div>
+</footer>
+
+<script>
+  (function () {
+    function escapeHtml(t) {
+      return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+    document.querySelectorAll(".tpl").forEach(function (tpl) {
+      var pre = tpl.querySelector("pre");
+      var btn = tpl.querySelector(".copy");
+      var raw = pre.textContent;
+      pre.innerHTML = escapeHtml(raw).replace(/\[[^\]\n]+\]/g, function (m) { return "<mark>" + m + "</mark>"; });
+      btn.addEventListener("click", function () {
+        var done = function () {
+          btn.textContent = "Copied";
+          setTimeout(function () { btn.textContent = "Copy"; }, 1800);
+        };
+        var fail = function () {
+          var range = document.createRange();
+          range.selectNodeContents(pre);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          btn.textContent = "Selected: press Ctrl+C";
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(raw).then(done, fail);
+        } else {
+          fail();
+        }
+      });
+    });
+  })();
+</script>

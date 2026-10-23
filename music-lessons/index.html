@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
 <style>
-  /* Layout: a gig-poster hero beside the stage photo, a poster-style lineup of what I teach, prices, experience, reviews, contact. One committed stage-light look. */
+  /* Layout: a gig-poster hero beside the stage photo, a poster-style lineup of what I teach, tasters, prices, experience, reviews, an enquiry builder and the small print. One committed stage-light look. */
   :root {
     --stage: #0c1530;        /* deep stage blue, from the photos */
     --stage-raised: #142048;
@@ -34,6 +34,7 @@
   }
 
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   body {
     background: var(--stage);
     color: var(--ink);
@@ -377,6 +378,122 @@
   .contact .ask { max-width: 52ch; }
   .contact .social strong { color: var(--ink); }
 
+  /* Tasters */
+  .tasters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .taster {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+    padding: 28px;
+    border-radius: var(--radius);
+    border: 1px solid var(--stage-line);
+    min-width: 0;
+  }
+  .taster .tag { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); }
+  .taster h3 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; text-transform: uppercase; }
+  .taster h3 em { font-style: normal; color: var(--amber); }
+  .taster p { color: var(--muted); max-width: 52ch; }
+  .taster .btn { justify-self: start; }
+
+  /* Enquiry builder */
+  .enquire { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+  .enquiry, .ready {
+    display: grid;
+    gap: 18px;
+    padding: clamp(20px, 3vw, 32px);
+    background: var(--stage);
+    border: 1px solid var(--stage-line);
+    border-radius: var(--radius);
+    min-width: 0;
+  }
+  .field { display: grid; gap: 6px; min-width: 0; }
+  .field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .field label, .choice legend { font-weight: 600; font-size: 0.95rem; }
+  .field label small, .choice legend small { font-weight: 400; color: var(--muted); }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+    background: var(--stage-raised);
+    border: 1px solid var(--stage-line);
+    border-radius: 10px;
+    padding: 11px 13px;
+  }
+  .field textarea { resize: vertical; min-height: 96px; }
+  .field input::placeholder, .field textarea::placeholder { color: var(--muted); opacity: 0.8; }
+  .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--amber); outline-offset: 1px; }
+  .choice { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width: 0; }
+  .choice .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .choice label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--stage-line);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  .choice input { accent-color: var(--amber); margin: 0; }
+  .choice label:has(input:checked) { border-color: var(--amber); background: var(--stage-raised); }
+  .choice label:has(input:focus-visible) { outline: 3px solid var(--amber); outline-offset: 2px; }
+  .form-note { font-size: var(--step--1); color: var(--muted); }
+  .enquiry .btn { justify-self: start; }
+  .ready h3 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; text-transform: uppercase; color: var(--amber); }
+  .ready pre {
+    margin: 0;
+    padding: 16px;
+    background: var(--stage-raised);
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    max-height: 22rem;
+    overflow: auto;
+  }
+  .ready-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .next { display: grid; gap: 24px; min-width: 0; }
+  .next ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; counter-reset: next; }
+  .next ol li { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 2px 12px; counter-increment: next; }
+  .next ol li::before {
+    content: counter(next);
+    grid-row: span 2;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--teal);
+  }
+  .next ol b { font-weight: 700; }
+  .next ol span { color: var(--muted); font-size: 0.95rem; }
+  .next h3 { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); font-weight: 400; }
+
+  /* Small print */
+  .small-print { max-width: 820px; border-top: 1px solid var(--stage-line); }
+  .small-print details { border-bottom: 1px solid var(--stage-line); }
+  .small-print summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-block: 18px;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-1);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .small-print summary::-webkit-details-marker { display: none; }
+  .small-print summary::after { content: "+"; font-family: var(--font-mono); color: var(--amber); font-size: 1.4rem; }
+  .small-print details[open] summary::after { content: "–"; }
+  .small-print .body { display: grid; gap: 10px; padding-bottom: 20px; color: var(--muted); max-width: 66ch; }
+  .small-print .body strong { color: var(--ink); font-weight: 600; }
+
   footer .wrap {
     padding-block: 24px;
     font-family: var(--font-mono);
@@ -398,6 +515,7 @@
     .hero-photo { order: -1; }
     .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 30%; }
     .lineup a { grid-template-columns: minmax(0, 1fr) auto; }
+    .tasters, .enquire, .field-row { grid-template-columns: minmax(0, 1fr); }
     .prices { grid-template-columns: minmax(0, 1fr); }
     .lineup .act { grid-column: 1 / -1; }
     section { padding-block: 48px; }
@@ -423,7 +541,7 @@
         <h1>Guitar, singing <span class="amp">&amp;</span> drums<span class="plus">+ Worship leader &amp; team mentoring</span><span class="where">On the Isle of Wight or online</span></h1>
         <p class="lede">Friendly one-to-one lessons and mentoring from someone with <strong>nearly 20 years</strong> of playing, singing and leading worship teams.</p>
         <div class="cta-row">
-          <a class="btn" href="mailto:Josephshurmer@hotmail.co.uk?subject=Music%20lessons%20enquiry">Email me about lessons</a>
+          <a class="btn" href="#enquire">Enquire or book a taster</a>
           <span class="price-tag"><b>£20</b> / 30 min &nbsp;·&nbsp; <b>£35</b> / hour</span>
         </div>
       </div>
@@ -440,13 +558,36 @@
         <span class="eyebrow">What I teach</span>
       </div>
       <ul class="lineup">
-        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Guitar%20lessons%20enquiry"><span class="act">Acoustic guitar</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
-        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Singing%20lessons%20enquiry"><span class="act">Singing</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
-        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Drum%20lessons%20enquiry"><span class="act">Drums</span><span class="format">At your place, on your kit</span><span class="go">Get in touch →</span></a></li>
-        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Worship%20leader%20mentoring%20enquiry"><span class="act">Worship leader mentoring</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
-        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Worship%20team%20session%20enquiry"><span class="act">Worship team sessions</span><span class="format">At your church, on the Island</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="#enquire" data-interest="guitar"><span class="act">Acoustic guitar</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="#enquire" data-interest="singing"><span class="act">Singing</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="#enquire" data-interest="drums"><span class="act">Drums</span><span class="format">At your place, on your kit</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="#enquire" data-interest="mentoring"><span class="act">Worship leader mentoring</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="#enquire" data-interest="church"><span class="act">Worship team sessions</span><span class="format">At your church, on the Island</span><span class="go">Get in touch →</span></a></li>
       </ul>
       <p class="lineup-foot">Beginners to intermediate. Every session is built around you and the music you love.</p>
+    </div>
+  </section>
+
+  <section id="taster">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Try it first</span>
+        <h2>Start with a taster</h2>
+      </div>
+      <div class="tasters">
+        <div class="taster">
+          <span class="tag">Lessons &amp; mentoring</span>
+          <h3>Taster session · <em>30 min · £10</em></h3>
+          <p>We'll meet in person or online, play or sing together, work out where you're at and talk about what you'd like to learn. No commitment to book more.</p>
+          <a class="btn" href="#enquire" data-interest="taster">Book a taster</a>
+        </div>
+        <div class="taster">
+          <span class="tag">Churches &amp; worship teams</span>
+          <h3>A free chat <em>first</em></h3>
+          <p>Tell me about your team and what you'd like help with. We'll shape a session together, from a band practice to a workshop or jam session, and agree a price that works for your church.</p>
+          <a class="btn ghost" href="#enquire" data-interest="church">Start a conversation</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -455,7 +596,7 @@
       <div class="section-head">
         <span class="eyebrow">Prices</span>
         <h2>Simple pricing</h2>
-        <p>One-to-one lessons and mentoring are the same price whatever you learn. Worship team sessions come to you.</p>
+        <p>One-to-one lessons and mentoring are the same price whatever you learn, and worship team sessions come to you. Prices are always open to a conversation.</p>
       </div>
       <div class="prices">
         <div class="price">
@@ -479,6 +620,7 @@
         <li>Drums: at your place, on your own kit.</li>
         <li>Worship team sessions: a band practice, workshop or jam session for small or large groups, up to around 15 people.</li>
         <li>Every church is different. If budget is tight, get in touch and we'll work out something that suits you.</li>
+        <li>No hidden extras: travel on the Island is included, and anything else is agreed with you first.</li>
       </ul>
     </div>
   </section>
@@ -530,19 +672,161 @@
     </div>
   </section>
 
-  <div class="contact" id="contact">
+  <div class="contact" id="enquire">
     <div class="wrap">
-      <span class="eyebrow">Book a lesson</span>
+      <span class="eyebrow">Enquire or book</span>
       <h2>Let's get you playing</h2>
-      <p class="ask">Tell me what you'd like to learn and whether you'd prefer online or in person.</p>
-      <div class="email-line">
-        <span class="email" id="email-text">Josephshurmer@hotmail.co.uk</span>
-        <button class="btn ghost" type="button" id="copy-email">Copy email</button>
-        <a class="btn" href="mailto:Josephshurmer@hotmail.co.uk?subject=Music%20lessons%20enquiry">Email me</a>
+      <p class="ask">Fill this in and it writes your email for you. Prices, times and what a session looks like are always up for a chat.</p>
+      <div class="enquire">
+        <div>
+          <form class="enquiry" id="enquiry-form">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="f-phone">Phone <small>(optional)</small></label>
+                <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-interest">What are you interested in?</label>
+              <select id="f-interest" name="interest" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="taster">A taster session (30 min, £10)</option>
+                <option value="guitar">Acoustic guitar lessons</option>
+                <option value="singing">Singing lessons</option>
+                <option value="drums">Drum lessons</option>
+                <option value="mentoring">Worship leader mentoring</option>
+                <option value="church">A worship team session for my church</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+            <fieldset class="choice">
+              <legend>Who is it for?</legend>
+              <div class="opts">
+                <label><input type="radio" name="who" id="f-who-me" value="Me" required> Me</label>
+                <label><input type="radio" name="who" id="f-who-child" value="My child (under 18)"> My child (under 18)</label>
+                <label><input type="radio" name="who" id="f-who-church" value="My church or worship team"> My church or team</label>
+              </div>
+            </fieldset>
+            <div class="field" id="f-age-wrap" hidden>
+              <label for="f-age">Your child's age</label>
+              <input id="f-age" name="age" inputmode="numeric">
+            </div>
+            <div class="field" id="f-church-wrap" hidden>
+              <label for="f-church">Church or group name</label>
+              <input id="f-church" name="church" autocomplete="organization">
+            </div>
+            <fieldset class="choice">
+              <legend>Where? <small>(drums and church sessions are in person)</small></legend>
+              <div class="opts">
+                <label><input type="radio" name="where" id="f-where-in" value="In person"> In person</label>
+                <label><input type="radio" name="where" id="f-where-online" value="Online"> Online</label>
+                <label><input type="radio" name="where" id="f-where-either" value="Either"> Either</label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="f-level">Experience <small>(optional)</small></label>
+              <select id="f-level" name="level">
+                <option value="">Choose one</option>
+                <option>Complete beginner</option>
+                <option>Some experience</option>
+                <option>Intermediate</option>
+                <option>Already leading or playing in a team</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-when">Best days and times <small>(optional)</small></label>
+              <input id="f-when" name="when" placeholder="e.g. weekday evenings, Saturday mornings">
+            </div>
+            <div class="field">
+              <label for="f-msg">Anything else? <small>(optional)</small></label>
+              <textarea id="f-msg" name="message" rows="4" placeholder="Songs you'd love to play, goals, budget or questions"></textarea>
+            </div>
+            <button class="btn" type="submit">Write my enquiry</button>
+            <p class="form-note">Nothing is stored or sent from this page. You'll see your email first and send it yourself.</p>
+          </form>
+
+          <div class="ready" id="ready" hidden>
+            <h3>Your enquiry is ready</h3>
+            <p>Send it to <strong>Josephshurmer@hotmail.co.uk</strong>. Open it in your email app, or copy it and paste it into an email or a message to me.</p>
+            <pre id="ready-text"></pre>
+            <div class="ready-actions">
+              <a class="btn" id="ready-mail" href="mailto:Josephshurmer@hotmail.co.uk">Open in my email app</a>
+              <button class="btn ghost" type="button" id="ready-copy">Copy message</button>
+              <button class="btn ghost" type="button" id="ready-edit">Edit</button>
+            </div>
+            <p class="form-note">If your email app doesn't open, copy the message and send it to the address above, or message me on social media.</p>
+          </div>
+        </div>
+
+        <aside class="next">
+          <h3>What happens next</h3>
+          <ol>
+            <li><b>Send your enquiry</b><span>Use the form, or email me directly.</span></li>
+            <li><b>We chat it through</b><span>I'll get back to you to talk about what you're after, times and price.</span></li>
+            <li><b>Booking confirmed</b><span>I'll email you the date, time, price and how to pay.</span></li>
+            <li><b>Your first session</b><span>Starting with a taster if you'd like one.</span></li>
+          </ol>
+          <div class="email-line">
+            <span class="email" id="email-text">Josephshurmer@hotmail.co.uk</span>
+            <button class="btn ghost" type="button" id="copy-email">Copy email</button>
+          </div>
+          <p class="social">Or find me on social media: search <strong>Joseph Shurmer</strong>.</p>
+        </aside>
       </div>
-      <p class="social">Or find me on social media: search <strong>Joseph Shurmer</strong>.</p>
     </div>
   </div>
+
+  <section id="good-to-know">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Good to know</span>
+        <h2>The small print</h2>
+        <p>Plain and simple, and always open to a conversation.</p>
+      </div>
+      <div class="small-print">
+        <details>
+          <summary>Booking and payment</summary>
+          <div class="body">
+            <p>Once we've agreed a time, I'll email you a booking confirmation with the date, place, price and payment details.</p>
+            <p><strong>Lessons and tasters</strong> are paid by bank transfer before the lesson. Regular students can pay monthly in advance if that's easier.</p>
+            <p><strong>Worship team sessions</strong> are invoiced after the session and payable within 14 days.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Cancellations and changes</summary>
+          <div class="body">
+            <p>Need to cancel or move a lesson? Let me know at least 24 hours before and we'll rearrange it, or I'll refund you. Cancellations with less than 24 hours' notice are usually charged, though I'll always try to be fair.</p>
+            <p>If I have to cancel, you'll get a new time or a full refund.</p>
+            <p>When you book, you also have 14 days to change your mind and get a refund. If you ask to start lessons within those 14 days and then cancel, you pay only for the lessons you've already had.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Lessons for under-18s</summary>
+          <div class="body">
+            <p>Lessons for under-18s are booked by a parent or guardian, and I keep in touch with you rather than messaging your child directly.</p>
+            <p>For lessons at home, a parent or guardian should be in the house, and you're always welcome to sit in. For online lessons, please be nearby.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Your privacy</summary>
+          <div class="body">
+            <p>This page doesn't store anything you type. Your enquiry only reaches me when you send it from your own email.</p>
+            <p>I use your details only to reply to you and to arrange and run your lessons or sessions, and I keep the payment records the law requires. I don't share your details or add you to a mailing list.</p>
+            <p>You can ask me at any time to see, correct or delete your details. If you're unhappy with how I've handled them, you can contact the Information Commissioner's Office at <a href="https://ico.org.uk" rel="noopener">ico.org.uk</a>.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -554,30 +838,112 @@
 
 <script>
   (function () {
-    var btn = document.getElementById("copy-email");
-    var text = document.getElementById("email-text");
-    function selectText() {
-      var range = document.createRange();
-      range.selectNodeContents(text);
-      var sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-    btn.addEventListener("click", function () {
-      var value = text.textContent.trim();
+    var EMAIL = "Josephshurmer@hotmail.co.uk";
+
+    function copyText(value, btn, label, fallbackEl) {
       var done = function () {
         btn.textContent = "Copied";
-        setTimeout(function () { btn.textContent = "Copy email"; }, 1800);
+        setTimeout(function () { btn.textContent = label; }, 1800);
+      };
+      var fail = function () {
+        if (fallbackEl) {
+          var range = document.createRange();
+          range.selectNodeContents(fallbackEl);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        btn.textContent = "Selected: press Ctrl+C";
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(value).then(done, function () {
-          selectText();
-          btn.textContent = "Press Ctrl+C to copy";
-        });
+        navigator.clipboard.writeText(value).then(done, fail);
       } else {
-        selectText();
-        btn.textContent = "Press Ctrl+C to copy";
+        fail();
       }
+    }
+
+    var emailBtn = document.getElementById("copy-email");
+    var emailText = document.getElementById("email-text");
+    emailBtn.addEventListener("click", function () {
+      copyText(EMAIL, emailBtn, "Copy email", emailText);
+    });
+
+    var form = document.getElementById("enquiry-form");
+    var ready = document.getElementById("ready");
+    var readyText = document.getElementById("ready-text");
+    var readyMail = document.getElementById("ready-mail");
+    var readyCopy = document.getElementById("ready-copy");
+    var interest = document.getElementById("f-interest");
+    var ageWrap = document.getElementById("f-age-wrap");
+    var churchWrap = document.getElementById("f-church-wrap");
+    var current = { subject: "", body: "" };
+    var SCROLL = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+
+    function val(id) { return document.getElementById(id).value.trim(); }
+    function picked(name) {
+      var el = form.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : "";
+    }
+    function check(id) { document.getElementById(id).checked = true; syncWho(); }
+
+    function syncWho() {
+      var who = picked("who");
+      ageWrap.hidden = who !== "My child (under 18)";
+      churchWrap.hidden = who !== "My church or worship team";
+    }
+    form.addEventListener("change", function (e) {
+      if (e.target.name === "who") syncWho();
+    });
+
+    function chooseInterest(key) {
+      interest.value = key;
+      if (key === "church") { check("f-who-church"); check("f-where-in"); }
+      if (key === "drums") { check("f-where-in"); }
+    }
+    interest.addEventListener("change", function () { chooseInterest(interest.value); });
+
+    document.querySelectorAll("[data-interest]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        ready.hidden = true;
+        form.hidden = false;
+        chooseInterest(link.getAttribute("data-interest"));
+      });
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      var name = val("f-name");
+      var what = interest.options[interest.selectedIndex].text;
+      var who = picked("who");
+      if (who === "My child (under 18)" && val("f-age")) who += ", aged " + val("f-age");
+      if (who === "My church or worship team" && val("f-church")) who += ": " + val("f-church");
+
+      var lines = ["Hi Joseph,", "", "I'd like to ask about: " + what, "For: " + who];
+      if (picked("where")) lines.push("Where: " + picked("where"));
+      if (val("f-level")) lines.push("Experience: " + val("f-level"));
+      if (val("f-when")) lines.push("Best days and times: " + val("f-when"));
+      if (val("f-msg")) lines.push("", val("f-msg"));
+      lines.push("", "Thanks,", name, val("f-email"));
+      if (val("f-phone")) lines.push(val("f-phone"));
+
+      current.subject = "Enquiry: " + what + " (" + name + ")";
+      current.body = lines.join("\n");
+      readyText.textContent = "To: " + EMAIL + "\nSubject: " + current.subject + "\n\n" + current.body;
+      readyMail.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(current.subject) + "&body=" + encodeURIComponent(current.body);
+      readyCopy.textContent = "Copy message";
+      form.hidden = true;
+      ready.hidden = false;
+      ready.scrollIntoView({ behavior: SCROLL, block: "start" });
+    });
+
+    readyCopy.addEventListener("click", function () {
+      copyText("Subject: " + current.subject + "\n\n" + current.body, readyCopy, "Copy message", readyText);
+    });
+    document.getElementById("ready-edit").addEventListener("click", function () {
+      ready.hidden = true;
+      form.hidden = false;
+      form.scrollIntoView({ behavior: SCROLL, block: "start" });
     });
   })();
 </script>

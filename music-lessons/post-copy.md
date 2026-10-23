@@ -27,6 +27,8 @@ A bit about me: I started leading worship at 12 and have been playing, singing a
 
 Every session is built around you and what you want to work on.
 
+Not sure yet? Try a 30-minute taster for £10. Churches, let's start with a free chat.
+
 📧 Email me: Josephshurmer@hotmail.co.uk
 💬 Or send me a message here.
 More info: [LINK]
@@ -48,6 +50,8 @@ Plus worship leader mentoring, and worship team sessions at your church.
 
 £20 / 30 min · £35 / hour · Worship team sessions £120
 Drum lessons at your place, on your own kit.
+
+Try a 30-minute taster for £10.
 
 DM me or email Josephshurmer@hotmail.co.uk to book. Link in bio.
 
