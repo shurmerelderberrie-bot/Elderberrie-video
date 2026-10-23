@@ -225,9 +225,8 @@
   /* Prices */
   .prices {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
-    max-width: 760px;
   }
   .price {
     display: grid;
@@ -237,6 +236,8 @@
     border: 1px solid var(--stage-line);
   }
   .price.featured { background: var(--amber); color: var(--on-amber); border-color: var(--amber); }
+  .price.team { border-color: var(--teal); }
+  .price.team .len { color: var(--teal); }
   .price .len { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; }
   .price .amount {
     font-family: var(--font-display);
@@ -397,6 +398,7 @@
     .hero-photo { order: -1; }
     .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 30%; }
     .lineup a { grid-template-columns: minmax(0, 1fr) auto; }
+    .prices { grid-template-columns: minmax(0, 1fr); }
     .lineup .act { grid-column: 1 / -1; }
     section { padding-block: 48px; }
   }
@@ -418,7 +420,7 @@
     <div class="wrap">
       <div class="hero-copy">
         <span class="eyebrow">Now taking new students</span>
-        <h1>Guitar, singing <span class="amp">&amp;</span> drums<span class="plus">+ Worship leader mentoring</span><span class="where">On the Isle of Wight or online</span></h1>
+        <h1>Guitar, singing <span class="amp">&amp;</span> drums<span class="plus">+ Worship leader &amp; team mentoring</span><span class="where">On the Isle of Wight or online</span></h1>
         <p class="lede">Friendly one-to-one lessons and mentoring from someone with <strong>nearly 20 years</strong> of playing, singing and leading worship teams.</p>
         <div class="cta-row">
           <a class="btn" href="mailto:Josephshurmer@hotmail.co.uk?subject=Music%20lessons%20enquiry">Email me about lessons</a>
@@ -442,6 +444,7 @@
         <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Singing%20lessons%20enquiry"><span class="act">Singing</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
         <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Drum%20lessons%20enquiry"><span class="act">Drums</span><span class="format">At your place, on your kit</span><span class="go">Get in touch →</span></a></li>
         <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Worship%20leader%20mentoring%20enquiry"><span class="act">Worship leader mentoring</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Worship%20team%20session%20enquiry"><span class="act">Worship team sessions</span><span class="format">At your church, on the Island</span><span class="go">Get in touch →</span></a></li>
       </ul>
       <p class="lineup-foot">Beginners to intermediate. Every session is built around you and the music you love.</p>
     </div>
@@ -452,7 +455,7 @@
       <div class="section-head">
         <span class="eyebrow">Prices</span>
         <h2>Simple pricing</h2>
-        <p>One-to-one, and the same price for everything.</p>
+        <p>One-to-one lessons and mentoring are the same price whatever you learn. Worship team sessions come to you.</p>
       </div>
       <div class="prices">
         <div class="price">
@@ -465,10 +468,16 @@
           <span class="amount">£35</span>
           <span class="per">Time to learn, play through songs and fix the tricky bits</span>
         </div>
+        <div class="price team">
+          <span class="len">Worship team session</span>
+          <span class="amount">£150</span>
+          <span class="per">Up to 2 hours with your band or worship team at your church, including preparation and travel on the Island</span>
+        </div>
       </div>
       <ul class="price-notes">
         <li>Guitar, singing and worship leader mentoring: online or in person on the Isle of Wight.</li>
         <li>Drums: at your place, on your own kit.</li>
+        <li>Worship team sessions: a band practice, workshop or jam session for small or large groups, up to around 15 people.</li>
       </ul>
     </div>
   </section>
@@ -486,12 +495,12 @@
           <h2>Hi, I'm Joseph</h2>
         </div>
         <p>I started leading worship when I was 12, and nearly 20 years on I'm still playing, singing and leading worship teams.</p>
-        <p>I also direct Lionheart, a Christian charity and festival, where I bring in worship teams from around the country and support them behind the scenes. So I've seen worship from both sides: leading from the stage, and hosting and looking after the teams who lead. I bring both into my mentoring.</p>
+        <p>I've run group sessions for worship leaders with 10 to 15 people at a time, and led band practices that build good habits and a healthy team culture. I've supported churches with keeping their worship teams healthy and bringing new people in, and I've run jam sessions for big groups and small ones.</p>
         <p>I've also been teaching and mentoring musicians for a good few years.</p>
         <ul class="creds">
           <li><b>Age 12</b><span>Started leading worship</span></li>
           <li><b>~20 yrs</b><span>Playing, singing and leading worship teams</span></li>
-          <li><b>Lionheart</b><span>Directing a Christian charity and festival, hosting worship teams from around the country</span></li>
+          <li><b>Up to 15</b><span>Worship leaders in a single group session</span></li>
           <li><b>Grade 7</b><span>Drums</span></li>
           <li><b>Trained</b><span>Vocals, with a focus on breathing</span></li>
           <li><b>Self-taught</b><span>Guitar</span></li>
@@ -537,7 +546,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Joseph Shurmer · Guitar, singing &amp; drum lessons · Worship leader mentoring</span>
+    <span>Joseph Shurmer · Guitar, singing &amp; drum lessons · Worship leader &amp; team mentoring</span>
     <span>Isle of Wight &amp; online</span>
   </div>
 </footer>

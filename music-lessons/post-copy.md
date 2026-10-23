@@ -7,7 +7,7 @@ Swap `[LINK]` for your lesson page link once you've shared it publicly.
 
 ## Facebook (Isle of Wight community groups, your own page)
 
-🎸 Guitar, singing and drum lessons + worship leader mentoring on the Isle of Wight (or online) 🎤🥁
+🎸 Guitar, singing and drum lessons + worship leader & team mentoring on the Isle of Wight (or online) 🎤🥁
 
 Hi everyone, I'm Joseph. I'm taking on new students for:
 
@@ -15,13 +15,15 @@ Hi everyone, I'm Joseph. I'm taking on new students for:
 • Singing, beginner to intermediate
 • Drums, beginner to intermediate (at your place, on your own kit)
 • Worship leader training and mentoring, for new and growing worship leaders
+• Worship team sessions: I can come to your church and run a band practice, workshop or jam session
 
 Guitar, singing and worship leader sessions can be in person on the Island or online.
 
-A bit about me: I started leading worship at 12 and have been playing, singing and leading worship teams for nearly 20 years. I also direct Lionheart, a Christian charity and festival, where I bring in worship teams from around the country and support them behind the scenes, so I've seen worship from the organiser's side as well as the stage. I'm Grade 7 on drums, vocally trained, and I've been teaching and mentoring for a good few years.
+A bit about me: I started leading worship at 12 and have been playing, singing and leading worship teams for nearly 20 years. I've run group sessions for 10 to 15 worship leaders at a time, led band practices that build a healthy team culture, and supported churches with keeping their worship teams healthy and bringing new people in. I'm Grade 7 on drums, vocally trained, and I've been teaching and mentoring for a good few years.
 
 💷 £20 for 30 minutes
 💷 £35 for 1 hour
+💷 £150 for a worship team session at your church (up to 2 hours, including travel on the Island)
 
 Every session is built around you and what you want to work on.
 
@@ -37,14 +39,14 @@ Now taking new students 🎸🎤🥁
 
 Acoustic guitar, singing and drum lessons on the Isle of Wight or online. Beginner to intermediate.
 
-Plus worship leader mentoring.
+Plus worship leader mentoring, and worship team sessions at your church.
 
 ✔️ Nearly 20 years playing, singing and leading worship
-✔️ Director of Lionheart, a Christian charity and festival hosting worship teams from around the country
+✔️ Group sessions for up to 15 worship leaders at a time
 ✔️ Grade 7 drums
 ✔️ Vocally trained
 
-£20 / 30 min · £35 / hour
+£20 / 30 min · £35 / hour · Worship team sessions £150
 Drum lessons at your place, on your own kit.
 
 DM me or email Josephshurmer@hotmail.co.uk to book. Link in bio.
@@ -55,7 +57,7 @@ DM me or email Josephshurmer@hotmail.co.uk to book. Link in bio.
 
 ## Short version (Nextdoor, WhatsApp groups, comment replies)
 
-Guitar, singing and drum lessons on the Isle of Wight or online, beginner to intermediate, plus worship leader training and mentoring. Nearly 20 years' experience leading worship, Grade 7 drums, vocally trained. £20 / 30 min or £35 / hour. Drums at your place on your own kit. Email Josephshurmer@hotmail.co.uk or message me to book. [LINK]
+Guitar, singing and drum lessons on the Isle of Wight or online, beginner to intermediate, plus worship leader mentoring and worship team sessions at your church. Nearly 20 years' experience leading worship, Grade 7 drums, vocally trained. £20 / 30 min, £35 / hour, or £150 for a worship team session. Drums at your place on your own kit. Email Josephshurmer@hotmail.co.uk or message me to book. [LINK]
 
 ---
 
@@ -80,5 +82,5 @@ I'm now taking new students for guitar, singing, drums and worship leader mentor
 1. Isle of Wight Facebook community groups (town groups and "what's on" groups). Check each group's rules on business posts first; some only allow them on certain days.
 2. Facebook Marketplace under Services, using the feed graphic.
 3. Your Instagram feed plus a story, with the lesson page link in your bio.
-4. Your church noticeboard or newsletter, since people there already know your playing. For the worship leader mentoring, also ask other Island church leaders whether their worship teams would like it.
+4. Your church noticeboard or newsletter, since people there already know your playing. For worship team sessions, message church leaders and worship leaders on the Island directly. A personal message with the page link usually works better than a public post.
 5. School and parent groups if you decide to teach under-18s. Parents will often ask about a DBS check, so it helps to have one.
