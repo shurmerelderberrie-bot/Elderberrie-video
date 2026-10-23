@@ -23,7 +23,7 @@ A bit about me: I started leading worship at 12 and have been playing, singing a
 
 💷 £20 for 30 minutes
 💷 £35 for 1 hour
-💷 £150 for a worship team session at your church (up to 2 hours, including travel on the Island)
+💷 £120 for a worship team session at your church (up to 2 hours, including travel on the Island). If budget is tight, talk to me and we'll work something out.
 
 Every session is built around you and what you want to work on.
 
@@ -46,7 +46,7 @@ Plus worship leader mentoring, and worship team sessions at your church.
 ✔️ Grade 7 drums
 ✔️ Vocally trained
 
-£20 / 30 min · £35 / hour · Worship team sessions £150
+£20 / 30 min · £35 / hour · Worship team sessions £120
 Drum lessons at your place, on your own kit.
 
 DM me or email Josephshurmer@hotmail.co.uk to book. Link in bio.
@@ -57,7 +57,7 @@ DM me or email Josephshurmer@hotmail.co.uk to book. Link in bio.
 
 ## Short version (Nextdoor, WhatsApp groups, comment replies)
 
-Guitar, singing and drum lessons on the Isle of Wight or online, beginner to intermediate, plus worship leader mentoring and worship team sessions at your church. Nearly 20 years' experience leading worship, Grade 7 drums, vocally trained. £20 / 30 min, £35 / hour, or £150 for a worship team session. Drums at your place on your own kit. Email Josephshurmer@hotmail.co.uk or message me to book. [LINK]
+Guitar, singing and drum lessons on the Isle of Wight or online, beginner to intermediate, plus worship leader mentoring and worship team sessions at your church. Nearly 20 years' experience leading worship, Grade 7 drums, vocally trained. £20 / 30 min, £35 / hour, or £120 for a worship team session (happy to talk if budget is tight). Drums at your place on your own kit. Email Josephshurmer@hotmail.co.uk or message me to book. [LINK]
 
 ---
 
