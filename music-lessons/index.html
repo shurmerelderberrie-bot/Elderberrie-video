@@ -5,7 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
 <style>
-  /* Layout: a gig-poster hero beside the stage photo, then four offer cards that each carry a piece of real notation, prices, story, contact. One committed stage-light look. */
+  /* Layout: a gig-poster hero beside the stage photo, a poster-style lineup of what I teach, prices, experience, reviews, contact. One committed stage-light look. */
   :root {
     --stage: #0c1530;        /* deep stage blue, from the photos */
     --stage-raised: #142048;
@@ -118,23 +118,6 @@
   .lede { color: var(--muted); max-width: 46ch; font-size: var(--step-1); line-height: 1.5; }
   .lede strong { color: var(--ink); font-weight: 600; }
 
-  .hero-facts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .hero-facts li {
-    font-family: var(--font-mono);
-    font-size: var(--step--1);
-    padding: 6px 12px;
-    border: 1px solid var(--stage-line);
-    border-radius: 999px;
-    color: var(--ink);
-  }
-
   .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
   .btn {
     display: inline-flex;
@@ -198,30 +181,34 @@
   }
   .section-head p { color: var(--muted); }
 
-  /* Lesson cards */
-  .lessons {
+  /* Lineup: what I teach, set like a gig-poster bill */
+  .lineup { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--stage-line); }
+  .lineup a {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: baseline;
+    gap: 6px 28px;
+    padding-block: 20px;
+    border-bottom: 1px solid var(--stage-line);
+    color: var(--ink);
+    text-decoration: none;
   }
-  .lesson {
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    gap: 18px;
-    background: var(--stage-raised);
-    border: 1px solid var(--stage-line);
-    border-radius: var(--radius);
-    padding: 24px;
-    min-width: 0;
-  }
-  .lesson h3 {
+  .lineup .act {
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: var(--step-2);
-    line-height: 1;
+    font-weight: 900;
+    font-size: clamp(2.3rem, 1.3rem + 4vw, 4.6rem);
+    line-height: 0.95;
     text-transform: uppercase;
+    letter-spacing: 0.005em;
+    text-wrap: balance;
+    transition: color 0.15s ease;
   }
-  .lesson-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .lineup .format { font-family: var(--font-mono); font-size: var(--step--1); color: var(--teal); }
+  .lineup .go { font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); transition: color 0.15s ease; }
+  .lineup a:hover .act, .lineup a:focus-visible .act { color: var(--amber); }
+  .lineup a:hover .go, .lineup a:focus-visible .go { color: var(--amber); }
+  .lineup-foot { margin-top: 22px; color: var(--muted); max-width: 62ch; }
+
   .chip {
     font-family: var(--font-mono);
     font-size: 0.78rem;
@@ -230,127 +217,9 @@
     background: var(--stage);
     color: var(--teal);
   }
-  .notation {
-    display: grid;
-    gap: 8px;
-    background: var(--stage);
-    border-radius: 10px;
-    padding: 16px;
-    min-height: 168px;
-    align-content: center;
-  }
-  .notation-label {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .lesson ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
-  .lesson li::marker { color: var(--amber); }
-  .lesson .note {
-    font-size: var(--step--1);
-    color: var(--ink);
-    border-left: 3px solid var(--ember);
-    padding-left: 12px;
-  }
-
-  /* Chord box */
-  .chord svg { width: 112px; height: auto; display: block; margin-inline: auto; }
-
-  /* Breath bar */
-  .breath { display: grid; gap: 10px; }
-  .breath-bar {
-    position: relative;
-    display: grid;
-    grid-template-columns: 4fr 4fr 8fr;
-    height: 44px;
-    border-radius: 8px;
-    overflow: hidden;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-  .breath-bar span { display: grid; place-items: center; }
-  .breath-bar .in { background: var(--teal); color: var(--stage); }
-  .breath-bar .hold { background: #5a8f99; color: var(--stage); }
-  .breath-bar .out { background: var(--amber); color: var(--on-amber); }
-  .breath-bar .cursor {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 3px;
-    background: var(--ink);
-    box-shadow: 0 0 0 1px var(--stage);
-    animation: breathe 16s linear infinite;
-  }
-  .breath-counts {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--muted);
-    text-align: center;
-    font-variant-numeric: tabular-nums;
-  }
-  @keyframes breathe { from { left: 0; } to { left: calc(100% - 3px); } }
-
-  /* Drum grid */
-  .groove {
-    position: relative;
-    display: grid;
-    grid-template-columns: 2.2em repeat(8, minmax(0, 1fr));
-    gap: 4px;
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    align-items: center;
-  }
-  .groove .lbl { color: var(--muted); font-size: 0.7rem; }
-  .groove .cell {
-    height: 22px;
-    border-radius: 4px;
-    background: var(--stage-raised);
-    display: grid;
-    place-items: center;
-    color: var(--ink);
-  }
-  .groove .hit-hh { background: #2c3c78; }
-  .groove .hit-sn { background: var(--teal); color: var(--stage); }
-  .groove .hit-bd { background: var(--amber); color: var(--on-amber); }
-  .groove .count { text-align: center; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .groove-track { position: absolute; top: 0; bottom: 26px; left: calc(2.2em + 4px); right: 0; pointer-events: none; }
-  .playhead {
-    position: absolute;
-    top: -3px;
-    bottom: -3px;
-    left: 0;
-    width: calc(100% / 8);
-    border: 2px solid var(--ink);
-    border-radius: 6px;
-    animation: play 2.4s steps(8, end) infinite;
-  }
-  @keyframes play { from { transform: translateX(0); } to { transform: translateX(800%); } }
-
-  /* Setlist */
-  .setlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
-  .setlist li {
-    display: grid;
-    grid-template-columns: 1.2em minmax(0, 1fr) 3.4em 3.2em;
-    gap: 8px;
-    align-items: center;
-    padding: 5px 9px;
-    border-radius: 4px;
-    background: var(--stage-raised);
-  }
-  .setlist .n { color: var(--muted); }
-  .setlist .key { color: var(--amber); font-weight: 500; }
-  .setlist .bpm { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
-  .setlist li.pad { background: transparent; border: 1px dashed var(--stage-line); }
 
   @media (prefers-reduced-motion: reduce) {
-    .breath-bar .cursor, .playhead { animation: none; }
-    .playhead { display: none; }
+    .lineup .act, .lineup .go { transition: none; }
   }
 
   /* Prices */
@@ -478,28 +347,6 @@
   }
   .review:only-child .pull { font-size: var(--step-3); grid-row: span 3; }
 
-  /* Steps */
-  .steps {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    counter-reset: step;
-  }
-  .steps li { display: grid; gap: 8px; align-content: start; counter-increment: step; min-width: 0; }
-  .steps li::before {
-    content: counter(step);
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 2.6rem;
-    line-height: 1;
-    color: var(--teal);
-  }
-  .steps h3 { font-size: var(--step-1); font-weight: 700; }
-  .steps p { color: var(--muted); }
-
   /* Contact */
   .contact { background: var(--stage-raised); }
   .contact .wrap { display: grid; gap: 22px; padding-block: 64px; }
@@ -525,7 +372,8 @@
   }
   .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--stage-line); }
   .btn.ghost:hover { border-color: var(--amber); }
-  .contact .social { color: var(--muted); }
+  .contact .social, .contact .ask { color: var(--muted); }
+  .contact .ask { max-width: 52ch; }
   .contact .social strong { color: var(--ink); }
 
   footer .wrap {
@@ -548,8 +396,8 @@
     .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-top: 0; }
     .hero-photo { order: -1; }
     .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 30%; }
-    .steps { grid-template-columns: minmax(0, 1fr); }
-    .lessons { grid-template-columns: minmax(0, 1fr); }
+    .lineup a { grid-template-columns: minmax(0, 1fr) auto; }
+    .lineup .act { grid-column: 1 / -1; }
     section { padding-block: 48px; }
   }
   @media (max-width: 480px) {
@@ -571,14 +419,7 @@
       <div class="hero-copy">
         <span class="eyebrow">Now taking new students</span>
         <h1>Guitar, singing <span class="amp">&amp;</span> drums<span class="plus">+ Worship leader mentoring</span><span class="where">On the Isle of Wight or online</span></h1>
-        <p class="lede">Friendly one-to-one lessons for <strong>beginners and intermediate players</strong>, plus <strong>training and mentoring for worship leaders</strong>, from someone who has spent <strong>nearly 20 years</strong> playing, singing and leading worship teams.</p>
-        <ul class="hero-facts">
-          <li>Acoustic guitar</li>
-          <li>Vocals</li>
-          <li>Drums</li>
-          <li>Worship leading</li>
-          <li>In person or online</li>
-        </ul>
+        <p class="lede">Friendly one-to-one lessons and mentoring from someone with <strong>nearly 20 years</strong> of playing, singing and leading worship teams.</p>
         <div class="cta-row">
           <a class="btn" href="mailto:Josephshurmer@hotmail.co.uk?subject=Music%20lessons%20enquiry">Email me about lessons</a>
           <span class="price-tag"><b>£20</b> / 30 min &nbsp;·&nbsp; <b>£35</b> / hour</span>
@@ -594,141 +435,15 @@
   <section id="lessons">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">What I offer</span>
-        <h2>Four ways to grow as a musician</h2>
-        <p>Every session is built around you: the songs you want to play, the style you like, the role you're growing into and the pace that suits you.</p>
+        <span class="eyebrow">What I teach</span>
       </div>
-
-      <div class="lessons">
-        <article class="lesson">
-          <div>
-            <h3>Acoustic guitar</h3>
-            <div class="lesson-meta"><span class="chip">Beginner to intermediate</span><span class="chip">Online or in person</span></div>
-          </div>
-          <div class="notation chord" aria-label="Chord diagram for an open G major chord">
-            <svg viewBox="0 0 120 150" role="img" aria-hidden="true">
-              <text x="60" y="13" text-anchor="middle" fill="#eef1fb" font-family="DM Mono, monospace" font-size="13" font-weight="500">G</text>
-              <!-- open / muted markers above nut -->
-              <g fill="none" stroke="#a3aed3" stroke-width="1.4">
-                <circle cx="50" cy="28" r="4"/>
-                <circle cx="70" cy="28" r="4"/>
-                <circle cx="90" cy="28" r="4"/>
-              </g>
-              <!-- nut -->
-              <rect x="10" y="36" width="100" height="5" rx="1" fill="#eef1fb"/>
-              <!-- frets -->
-              <g stroke="#26346a" stroke-width="2">
-                <line x1="10" y1="66" x2="110" y2="66"/>
-                <line x1="10" y1="92" x2="110" y2="92"/>
-                <line x1="10" y1="118" x2="110" y2="118"/>
-                <line x1="10" y1="144" x2="110" y2="144"/>
-              </g>
-              <!-- strings -->
-              <g stroke="#a3aed3" stroke-width="1.3">
-                <line x1="10" y1="40" x2="10" y2="144"/>
-                <line x1="30" y1="40" x2="30" y2="144"/>
-                <line x1="50" y1="40" x2="50" y2="144"/>
-                <line x1="70" y1="40" x2="70" y2="144"/>
-                <line x1="90" y1="40" x2="90" y2="144"/>
-                <line x1="110" y1="40" x2="110" y2="144"/>
-              </g>
-              <!-- fingers: low E fret 3, A fret 2, high e fret 3 -->
-              <circle cx="10" cy="105" r="8" fill="#f2a63c"/>
-              <circle cx="30" cy="79" r="8" fill="#f2a63c"/>
-              <circle cx="110" cy="105" r="8" fill="#f2a63c"/>
-              <g font-family="DM Mono, monospace" font-size="9" text-anchor="middle" fill="#1a1206" font-weight="500">
-                <text x="10" y="108.5">2</text>
-                <text x="30" y="82.5">1</text>
-                <text x="110" y="108.5">3</text>
-              </g>
-            </svg>
-            <span class="notation-label" style="text-align:center">Lesson one: your first open chord</span>
-          </div>
-          <ul>
-            <li>Holding the guitar, tuning up and getting comfortable</li>
-            <li>Open chords and clean changes between them</li>
-            <li>Strumming patterns that keep time</li>
-            <li>Capo, simple fingerpicking and playing along to real songs</li>
-          </ul>
-          <p class="note">Bring the songs you love and we'll learn them together.</p>
-        </article>
-
-        <article class="lesson">
-          <div>
-            <h3>Singing</h3>
-            <div class="lesson-meta"><span class="chip">Beginner to intermediate</span><span class="chip">Online or in person</span></div>
-          </div>
-          <div class="notation breath" aria-label="Breathing exercise: breathe in for 4 counts, hold for 4, breathe out for 8">
-            <div class="breath-bar" aria-hidden="true">
-              <span class="in">IN 4</span><span class="hold">HOLD 4</span><span class="out">OUT 8</span>
-              <i class="cursor"></i>
-            </div>
-            <div class="breath-counts" aria-hidden="true">
-              <span>1</span><span>2</span><span>3</span><span>4</span><span>1</span><span>2</span><span>3</span><span>4</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
-            </div>
-            <span class="notation-label">Lesson one: breathing that supports your voice</span>
-          </div>
-          <ul>
-            <li>Breathing and breath support, the base for everything else</li>
-            <li>Proper warm-ups to protect your voice</li>
-            <li>Pitch, range and finding your natural tone</li>
-            <li>Confidence singing in front of people, and harmonies for bands and worship teams</li>
-          </ul>
-          <p class="note">Breathing technique is part of every singing lesson.</p>
-        </article>
-
-        <article class="lesson">
-          <div>
-            <h3>Drums</h3>
-            <div class="lesson-meta"><span class="chip">Beginner to intermediate</span><span class="chip">At your place</span></div>
-          </div>
-          <div class="notation" aria-label="Drum groove grid for a basic rock beat: hi-hat on every eighth note, snare on 2 and 4, bass drum on 1 and 3">
-            <div class="groove" aria-hidden="true">
-              <span class="lbl">HH</span>
-              <span class="cell hit-hh">x</span><span class="cell hit-hh">x</span><span class="cell hit-hh">x</span><span class="cell hit-hh">x</span><span class="cell hit-hh">x</span><span class="cell hit-hh">x</span><span class="cell hit-hh">x</span><span class="cell hit-hh">x</span>
-              <span class="lbl">SN</span>
-              <span class="cell"></span><span class="cell"></span><span class="cell hit-sn">●</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell hit-sn">●</span><span class="cell"></span>
-              <span class="lbl">BD</span>
-              <span class="cell hit-bd">●</span><span class="cell"></span><span class="cell"></span><span class="cell"></span><span class="cell hit-bd">●</span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
-              <span class="lbl"></span>
-              <span class="count">1</span><span class="count">&amp;</span><span class="count">2</span><span class="count">&amp;</span><span class="count">3</span><span class="count">&amp;</span><span class="count">4</span><span class="count">&amp;</span>
-              <div class="groove-track"><i class="playhead"></i></div>
-            </div>
-            <span class="notation-label">Lesson one: the basic rock beat</span>
-          </div>
-          <ul>
-            <li>Grip, posture and setting up your kit</li>
-            <li>Core grooves and keeping steady time to a click</li>
-            <li>Fills, dynamics and reading simple drum notation</li>
-            <li>Playing along to tracks and with other musicians</li>
-          </ul>
-          <p class="note">Drum lessons happen at your place, so you'll need your own kit and a space to play.</p>
-        </article>
-
-        <article class="lesson">
-          <div>
-            <h3>Worship leading</h3>
-            <div class="lesson-meta"><span class="chip">Training &amp; mentoring</span><span class="chip">Online or in person</span></div>
-          </div>
-          <div class="notation" aria-label="Example setlist with keys and tempos: upbeat opener in G at 132 bpm, build in A at 124 bpm, pad transition from A to D, reflective song in D at 68 bpm, response song in D at 72 bpm">
-            <ol class="setlist" aria-hidden="true">
-              <li><span class="n">1</span><span>Opener, upbeat</span><span class="key">G</span><span class="bpm">132</span></li>
-              <li><span class="n">2</span><span>Build</span><span class="key">A</span><span class="bpm">124</span></li>
-              <li class="pad"><span class="n">↓</span><span>Pad transition</span><span class="key">A→D</span><span class="bpm">free</span></li>
-              <li><span class="n">3</span><span>Reflective</span><span class="key">D</span><span class="bpm">68</span></li>
-              <li><span class="n">4</span><span>Response</span><span class="key">D</span><span class="bpm">72</span></li>
-            </ol>
-            <span class="notation-label">Session one: building a setlist that flows</span>
-          </div>
-          <ul>
-            <li>Planning setlists: song choice, keys that suit the congregation, and flow</li>
-            <li>Leading from the front: transitions, speaking between songs and reading the room</li>
-            <li>Running rehearsals and leading a band or worship team</li>
-            <li>Preparing well week to week, spiritually as well as musically</li>
-          </ul>
-          <p class="note">For new and growing worship leaders, from someone who has led worship since age 12.</p>
-        </article>
-      </div>
+      <ul class="lineup">
+        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Guitar%20lessons%20enquiry"><span class="act">Acoustic guitar</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Singing%20lessons%20enquiry"><span class="act">Singing</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Drum%20lessons%20enquiry"><span class="act">Drums</span><span class="format">At your place, on your kit</span><span class="go">Get in touch →</span></a></li>
+        <li><a href="mailto:Josephshurmer@hotmail.co.uk?subject=Worship%20leader%20mentoring%20enquiry"><span class="act">Worship leader mentoring</span><span class="format">Online or in person</span><span class="go">Get in touch →</span></a></li>
+      </ul>
+      <p class="lineup-foot">Beginners to intermediate. Every session is built around you and the music you love.</p>
     </div>
   </section>
 
@@ -737,7 +452,7 @@
       <div class="section-head">
         <span class="eyebrow">Prices</span>
         <h2>Simple pricing</h2>
-        <p>One-to-one sessions, the same price for guitar, singing, drums and worship leader mentoring.</p>
+        <p>One-to-one, and the same price for everything.</p>
       </div>
       <div class="prices">
         <div class="price">
@@ -752,10 +467,8 @@
         </div>
       </div>
       <ul class="price-notes">
-        <li>Guitar and singing: online or in person on the Isle of Wight.</li>
-        <li>Drums: in person at your place, on your own kit.</li>
-        <li>Worship leader training and mentoring: online or in person.</li>
-        <li>Not sure which length suits you? Email me and we'll work it out.</li>
+        <li>Guitar, singing and worship leader mentoring: online or in person on the Isle of Wight.</li>
+        <li>Drums: at your place, on your own kit.</li>
       </ul>
     </div>
   </section>
@@ -772,13 +485,15 @@
         <div class="section-head" style="margin-bottom:0">
           <h2>Hi, I'm Joseph</h2>
         </div>
-        <p>I started leading worship when I was 12, and I've been playing, singing and leading worship teams ever since. That's nearly 20 years of music, most of it spent helping other people play and sing their best.</p>
-        <p>I taught myself guitar, so I know exactly which parts feel hard at the start and how to get past them. I'm vocally trained and I put a lot of weight on proper breathing, because it's what keeps a voice strong and healthy. I've also been teaching students for a good few years.</p>
+        <p>I started leading worship when I was 12, and nearly 20 years on I'm still playing, singing and leading worship teams. Through directing Lionheart, I've worked closely with worship teams around the country.</p>
+        <p>I've also been teaching and mentoring musicians for a good few years.</p>
         <ul class="creds">
           <li><b>Age 12</b><span>Started leading worship</span></li>
-          <li><b>~20 yrs</b><span>Playing, singing and leading teams</span></li>
+          <li><b>~20 yrs</b><span>Playing, singing and leading worship teams</span></li>
+          <li><b>Lionheart</b><span>Directing, working with worship teams around the country</span></li>
           <li><b>Grade 7</b><span>Drums</span></li>
           <li><b>Trained</b><span>Vocals, with a focus on breathing</span></li>
+          <li><b>Self-taught</b><span>Guitar</span></li>
         </ul>
       </div>
     </div>
@@ -804,24 +519,11 @@
     </div>
   </section>
 
-  <section id="how">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">How to start</span>
-        <h2>Getting started is easy</h2>
-      </div>
-      <ol class="steps">
-        <li><h3>Send me an email</h3><p>Tell me what you'd like to work on, roughly where you're at, and whether you'd like sessions online or in person.</p></li>
-        <li><h3>We pick a time</h3><p>We'll find a regular slot that fits around your week.</p></li>
-        <li><h3>Start playing</h3><p>From the first lesson you'll be playing or singing something real.</p></li>
-      </ol>
-    </div>
-  </section>
-
   <div class="contact" id="contact">
     <div class="wrap">
       <span class="eyebrow">Book a lesson</span>
       <h2>Let's get you playing</h2>
+      <p class="ask">Tell me what you'd like to learn and whether you'd prefer online or in person.</p>
       <div class="email-line">
         <span class="email" id="email-text">Josephshurmer@hotmail.co.uk</span>
         <button class="btn ghost" type="button" id="copy-email">Copy email</button>
