@@ -437,6 +437,47 @@
   }
   .creds span { color: var(--muted); font-size: var(--step--1); }
 
+  /* Reviews */
+  .reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 20px;
+  }
+  .review {
+    margin: 0;
+    display: grid;
+    gap: 18px;
+    align-content: start;
+    padding: 28px;
+    border-radius: var(--radius);
+    background: var(--stage-raised);
+    border: 1px solid var(--stage-line);
+    min-width: 0;
+  }
+  .review .pull {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-2);
+    line-height: 1.02;
+    text-transform: uppercase;
+    color: var(--amber);
+    text-wrap: balance;
+  }
+  .review .pull::before { content: "\201C"; }
+  .review .pull::after { content: "\201D"; }
+  .review blockquote { margin: 0; display: grid; gap: 12px; }
+  .review blockquote p { max-width: 62ch; }
+  .review .covered { display: flex; flex-wrap: wrap; gap: 6px; }
+  .review figcaption { display: grid; gap: 2px; font-family: var(--font-mono); font-size: var(--step--1); color: var(--muted); }
+  .review figcaption b { font-family: var(--font-body); font-size: var(--step-0); font-weight: 700; color: var(--ink); }
+  /* A lone review reads as a feature: pull quote beside the full text */
+  .review:only-child {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    column-gap: clamp(24px, 4vw, 56px);
+    padding: clamp(24px, 4vw, 44px);
+  }
+  .review:only-child .pull { font-size: var(--step-3); grid-row: span 3; }
+
   /* Steps */
   .steps {
     margin: 0;
@@ -502,6 +543,8 @@
     .about { grid-template-columns: minmax(0, 1fr); }
   }
   @media (max-width: 760px) {
+    .review:only-child { grid-template-columns: minmax(0, 1fr); }
+    .review:only-child .pull { font-size: var(--step-2); grid-row: auto; }
     .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-top: 0; }
     .hero-photo { order: -1; }
     .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 30%; }
@@ -737,6 +780,26 @@
           <li><b>Grade 7</b><span>Drums</span></li>
           <li><b>Trained</b><span>Vocals, with a focus on breathing</span></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Reviews</span>
+        <h2>What students say</h2>
+      </div>
+      <div class="reviews">
+        <figure class="review">
+          <p class="pull" aria-hidden="true">Someone dedicated to my growth and potential</p>
+          <blockquote>
+            <p>As a teenager whose passions were music, singing and worship leading, having Joe as a mentor was a really formative time in my life. The sessions we had together focused on contemporary guitar skills, learning to sing healthily and better, worship leading and songwriting.</p>
+            <p>These sessions were a real blessing and taught me a lot which I still carry into what I do today! I was also fortunate to have Joe to ask any questions, seek guidance and feedback and to have someone dedicated to my growth and potential. Thank you Joe!</p>
+          </blockquote>
+          <div class="covered"><span class="chip">Guitar</span><span class="chip">Singing</span><span class="chip">Worship leading</span><span class="chip">Songwriting</span></div>
+          <figcaption><b>Noah Burton</b>Mentored by Joe as a teenager</figcaption>
+        </figure>
       </div>
     </div>
   </section>

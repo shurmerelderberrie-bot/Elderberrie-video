@@ -61,6 +61,22 @@ Guitar, singing and drum lessons on the Isle of Wight or online, beginner to int
 
 ---
 
+## Review post (Facebook and Instagram)
+
+Post this a few days after the main advert. It works well with the close-up singing photo.
+
+"Having Joe as a mentor was a really formative time in my life."
+
+So grateful for this kind review from Noah, who I mentored as a teenager. We worked on contemporary guitar, singing healthily, worship leading and songwriting.
+
+"These sessions were a real blessing and taught me a lot which I still carry into what I do today! I was also fortunate to have Joe to ask any questions, seek guidance and feedback and to have someone dedicated to my growth and potential."
+— Noah Burton
+
+I'm now taking new students for guitar, singing, drums and worship leader mentoring, on the Isle of Wight or online. £20 / 30 min · £35 / hour.
+📧 Josephshurmer@hotmail.co.uk or send me a message. [LINK]
+
+---
+
 ## Where to post
 
 1. Isle of Wight Facebook community groups (town groups and "what's on" groups). Check each group's rules on business posts first; some only allow them on certain days.
