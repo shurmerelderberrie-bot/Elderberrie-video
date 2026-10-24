@@ -30,7 +30,7 @@ Every session is built around you and what you want to work on.
 Not sure yet? Try a 30-minute taster for £10. Churches, let's start with a free chat.
 
 📧 Email me: Josephshurmer@hotmail.co.uk
-💬 Or send me a message here.
+💬 Or send me a message here, or on Instagram @josephshurmer.
 More info: [LINK]
 
 ---
