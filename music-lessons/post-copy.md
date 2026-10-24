@@ -97,6 +97,22 @@ Drum lessons at your place, on your own kit, plus guitar, singing and worship me
 
 ---
 
+## Review post 3 (Facebook and Instagram)
+
+Post this a week or so after the second review. It works well with the close-up singing photo.
+
+"I've seen first hand his skill, patience and inspirational manner."
+
+This one means a lot. I taught Grace piano years ago, and she now teaches in a music studio in Boston, USA:
+
+"I recommend Joseph for a range of tuition as I've seen first hand his skill, patience and inspirational manner toward my daughter who was learning piano. Jo made a huge impact for Grace who now teaches in a music studio in Boston, USA. We are grateful for Jo to have played a part in our daughter's journey as a pianist."
+— [Parent's name]
+
+Guitar, singing, drums and worship mentoring on the Isle of Wight or online. Try a 30-minute taster for £10.
+📧 Josephshurmer@hotmail.co.uk or send me a message. [LINK]
+
+---
+
 ## Where to post
 
 1. Isle of Wight Facebook community groups (town groups and "what's on" groups). Check each group's rules on business posts first; some only allow them on certain days.
