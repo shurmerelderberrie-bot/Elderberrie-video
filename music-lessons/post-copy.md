@@ -81,6 +81,22 @@ I'm now taking new students for guitar, singing, drums and worship leader mentor
 
 ---
 
+## Review post 2 (Facebook and Instagram)
+
+Post this a week or so after the first review. It works well with the stage photo next to the drum kit.
+
+"I saw Joseph encourage him and build him up."
+
+Really grateful for these kind words from Dan, whose son I taught drums a few years ago:
+
+"Several years ago Joseph began to teach my son drums. My son initially had very low confidence. I saw Joseph encourage him and build him up. My son now plays regularly in church events and has the confidence in all he was taught by Jo."
+— Dan Worboys
+
+Drum lessons at your place, on your own kit, plus guitar, singing and worship mentoring on the Isle of Wight or online. Try a 30-minute taster for £10.
+📧 Josephshurmer@hotmail.co.uk or send me a message. [LINK]
+
+---
+
 ## Where to post
 
 1. Isle of Wight Facebook community groups (town groups and "what's on" groups). Check each group's rules on business posts first; some only allow them on certain days.
