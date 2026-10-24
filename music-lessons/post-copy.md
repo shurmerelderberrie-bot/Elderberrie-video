@@ -106,7 +106,7 @@ Post this a week or so after the second review. It works well with the close-up 
 This one means a lot. I taught Grace piano years ago, and she now teaches in a music studio in Boston, USA:
 
 "I recommend Joseph for a range of tuition as I've seen first hand his skill, patience and inspirational manner toward my daughter who was learning piano. Jo made a huge impact for Grace who now teaches in a music studio in Boston, USA. We are grateful for Jo to have played a part in our daughter's journey as a pianist."
-— [Parent's name]
+— Danny Miller
 
 Guitar, singing, drums and worship mentoring on the Isle of Wight or online. Try a 30-minute taster for £10.
 📧 Josephshurmer@hotmail.co.uk or send me a message. [LINK]
