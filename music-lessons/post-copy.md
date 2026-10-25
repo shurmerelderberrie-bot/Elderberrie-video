@@ -113,6 +113,21 @@ Guitar, singing, drums and worship mentoring on the Isle of Wight or online. Try
 
 ---
 
+## Review post 4 (Facebook and Instagram)
+
+Post this a week or so after the third review. Good for reaching churches and worship teams.
+
+"Joseph is a gifted teacher and excellent encourager!"
+
+Thankful for these words from Daniel Harman of City Life Church Portsmouth & Gateway People:
+
+"Joseph is a gifted teacher and excellent encourager! I admire his patience, creativity and persistence in helping others unlock their potential. Very happy to recommend and thankful for his input in my family."
+
+Lessons in guitar, singing and drums, worship leader mentoring and worship team sessions for churches on the Isle of Wight. Try a 30-minute taster for £10, or let's have a chat about your team.
+📧 Josephshurmer@hotmail.co.uk or send me a message. [LINK]
+
+---
+
 ## Where to post
 
 1. Isle of Wight Facebook community groups (town groups and "what's on" groups). Check each group's rules on business posts first; some only allow them on certain days.
