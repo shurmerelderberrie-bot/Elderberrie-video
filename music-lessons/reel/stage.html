@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lessons reel stage</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --stage: #0c1530;
+    --stage-raised: #142048;
+    --stage-line: #2a3a74;
+    --ink: #eef1fb;
+    --muted: #a3aed3;
+    --amber: #f2a63c;
+    --teal: #86c9cc;
+    --on-amber: #1a1206;
+    --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+    --font-body: "Hanken Grotesk", "Segoe UI", Arial, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--stage); }
+  body { font-family: var(--font-body); color: var(--ink); }
+  .canvas {
+    position: relative; width: 1080px; height: 1920px; overflow: hidden;
+    background:
+      radial-gradient(900px 700px at 100% 0%, rgba(134, 201, 204, 0.16), transparent 70%),
+      radial-gradient(900px 800px at 0% 100%, rgba(242, 166, 60, 0.14), transparent 70%),
+      var(--stage);
+  }
+
+  /* Captions */
+  .cap { position: absolute; left: 70px; right: 70px; top: 150px; display: grid; gap: 12px; will-change: opacity, transform; }
+  .cap .eyebrow { font-family: var(--font-mono); font-size: 30px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); }
+  .cap .title { white-space: nowrap; font-family: var(--font-display); font-weight: 900; font-size: 92px; line-height: 0.92; text-transform: uppercase; }
+  .cap .title em { font-style: normal; color: var(--amber); }
+
+  /* Phone */
+  .phone {
+    position: absolute; left: 146px; top: 346px; width: 788px; height: 1431px;
+    border-radius: 64px; padding: 14px; background: #050a1c;
+    box-shadow: 0 0 0 2px var(--stage-line), 0 40px 120px rgba(0, 0, 0, 0.55);
+    will-change: opacity, transform;
+  }
+  .screen { position: relative; width: 760px; height: 1403px; border-radius: 50px; overflow: hidden; background: var(--stage); }
+  .screen img { position: absolute; left: 0; top: 0; width: 760px; height: auto; will-change: transform; }
+
+  /* End card */
+  .end { position: absolute; inset: 0; opacity: 0; will-change: opacity; }
+  .end .bg { position: absolute; inset: 0; background: url("../img/stage-guitar.jpg") 52% 30% / cover no-repeat; }
+  .end .bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,21,48,0.55) 0%, rgba(12,21,48,0.88) 45%, #0c1530 78%); }
+  .end .copy { position: absolute; left: 80px; right: 80px; top: 640px; display: grid; gap: 30px; }
+  .end .name { font-family: var(--font-mono); font-size: 32px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .end h1 { font-family: var(--font-display); font-weight: 900; font-size: 132px; line-height: 0.88; text-transform: uppercase; }
+  .end h1 .amp { color: var(--amber); }
+  .end .plus { font-family: var(--font-display); font-weight: 800; font-size: 60px; line-height: 1; color: var(--amber); text-transform: uppercase; }
+  .end .where { font-family: var(--font-display); font-weight: 700; font-size: 50px; color: var(--teal); text-transform: uppercase; }
+  .end .taster { justify-self: start; font-family: var(--font-display); font-weight: 800; font-size: 54px; text-transform: uppercase; background: var(--amber); color: var(--on-amber); padding: 14px 30px 10px; border-radius: 20px; }
+  .end .cta { font-size: 46px; font-weight: 700; }
+  .end .cta span { color: var(--amber); }
+  .end .email { font-family: var(--font-mono); font-size: 32px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="cap" data-from="0" data-to="3.0"><span class="eyebrow">Lessons · Isle of Wight &amp; online</span><span class="title">Guitar, singing <em>&amp;</em> drums</span></div>
+  <div class="cap" data-from="3.4" data-to="6.5"><span class="eyebrow">For worship leaders &amp; church teams</span><span class="title"><em>+</em> Worship mentoring</span></div>
+  <div class="cap" data-from="6.9" data-to="10.0"><span class="eyebrow">Not sure yet?</span><span class="title">Try a taster for <em>£10</em></span></div>
+  <div class="cap" data-from="10.4" data-to="13.3"><span class="eyebrow">£20 / 30 min · £35 / hour</span><span class="title">Simple, <em>honest</em> prices</span></div>
+  <div class="cap" data-from="13.7" data-to="17.0"><span class="eyebrow">Leading worship since age 12</span><span class="title">Nearly <em>20 years</em></span></div>
+  <div class="cap" data-from="17.4" data-to="21.5"><span class="eyebrow">Students, parents &amp; church leaders</span><span class="title">What people <em>say</em></span></div>
+  <div class="cap" data-from="21.9" data-to="25.0"><span class="eyebrow">Enquiries open now</span><span class="title">Book your <em>taster</em> today</span></div>
+
+  <div class="phone" id="phone"><div class="screen"><img id="page" src="page-phone.png" alt=""></div></div>
+
+  <div class="end" id="end">
+    <div class="bg"></div>
+    <div class="copy">
+      <span class="name">Joseph Shurmer · Lessons &amp; mentoring</span>
+      <h1>Guitar, singing <span class="amp">&amp;</span> drums</h1>
+      <span class="plus">+ Worship leader &amp; team mentoring</span>
+      <span class="where">Isle of Wight &amp; online</span>
+      <span class="taster">Taster session · 30 min · £10</span>
+      <span class="cta">Link in bio · <span>@josephshurmer</span></span>
+      <span class="email">Josephshurmer@hotmail.co.uk</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scroll keyframes in page CSS pixels: [time, scrollTop, how to reach the next point]
+  var KEYS = [
+    [0.0, 0, "drift"], [3.0, 140, "move"], [3.8, 902, "drift"], [6.5, 1000, "move"],
+    [7.3, 1755, "drift"], [10.0, 1840, "move"], [10.8, 2827, "drift"], [13.3, 2900, "move"],
+    [14.1, 4520, "drift"], [17.0, 4640, "move"], [17.8, 5656, "drift"], [21.5, 6450, "move"],
+    [22.3, 7922, "drift"], [25.0, 8040, "hold"]
+  ];
+  var SCALE = 760 / 390;
+  var caps = Array.prototype.slice.call(document.querySelectorAll(".cap"));
+  var img = document.getElementById("page");
+  var phone = document.getElementById("phone");
+  var end = document.getElementById("end");
+
+  function clamp(x, a, b) { return Math.max(a, Math.min(b, x)); }
+  function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+  function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
+
+  function scrollAt(t) {
+    for (var i = 0; i < KEYS.length - 1; i++) {
+      var a = KEYS[i], b = KEYS[i + 1];
+      if (t >= a[0] && t < b[0]) {
+        var k = (t - a[0]) / (b[0] - a[0]);
+        if (a[2] === "move") k = ease(k);
+        return a[1] + (b[1] - a[1]) * k;
+      }
+    }
+    return KEYS[KEYS.length - 1][1];
+  }
+
+  window.renderAt = function (t) {
+    img.style.transform = "translateY(" + (-scrollAt(t) * SCALE).toFixed(2) + "px)";
+
+    caps.forEach(function (c) {
+      var from = parseFloat(c.dataset.from), to = parseFloat(c.dataset.to);
+      var op = 0, dy = 30;
+      if (t >= from && t < to) {
+        var inK = from === 0 ? 1 : clamp((t - from) / 0.35, 0, 1);
+        var outK = clamp((to - t) / 0.25, 0, 1);
+        op = Math.min(easeOut(inK), outK);
+        dy = (1 - easeOut(inK)) * 30;
+      }
+      c.style.opacity = op.toFixed(3);
+      c.style.transform = "translateY(" + dy.toFixed(1) + "px)";
+    });
+
+    var intro = clamp(t / 0.45, 0, 1);
+    var outro = clamp((t - 25.0) / 0.5, 0, 1);
+    phone.style.opacity = (1 - outro).toFixed(3);
+    phone.style.transform = "translateY(" + ((1 - easeOut(intro)) * 60 + outro * 80).toFixed(1) + "px) scale(" + (1 - outro * 0.04).toFixed(4) + ")";
+    end.style.opacity = easeOut(clamp((t - 25.2) / 0.6, 0, 1)).toFixed(3);
+  };
+  window.renderAt(0);
+</script>
+</body>
+</html>

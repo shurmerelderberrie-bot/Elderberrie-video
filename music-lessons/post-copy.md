@@ -128,6 +128,22 @@ Lessons in guitar, singing and drums, worship leader mentoring and worship team 
 
 ---
 
+## Reel caption (Instagram and Facebook Reels)
+
+Use with `reel/lessons-reel-1080x1920.mp4`. The video has no sound, so add a track from Instagram's music library before posting. A gentle acoustic or worship instrumental works well. Use `reel/lessons-reel-cover.jpg` as the cover if you want.
+
+Now taking new students on the Isle of Wight 🎸🎤🥁
+
+Guitar, singing and drum lessons for beginners to intermediate, plus worship leader mentoring and worship team sessions for churches.
+
+Not sure yet? Try a 30-minute taster for £10.
+
+Link in bio, or DM me to book.
+
+#isleofwight #iow #guitarlessons #singinglessons #drumlessons #musiclessons #worshipleader #worshipteam #isleofwightmusic #newport #ryde #cowes
+
+---
+
 ## Where to post
 
 1. Isle of Wight Facebook community groups (town groups and "what's on" groups). Check each group's rules on business posts first; some only allow them on certain days.
