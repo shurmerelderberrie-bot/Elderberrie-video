@@ -5,6 +5,44 @@ Swap `[LINK]` for your lesson page link once you've shared it publicly.
 
 ---
 
+## Personal launch post (your own Facebook and Instagram)
+
+Post this first, from your own profile, with the reel or the feed graphic.
+
+### Facebook
+
+Hey friends, hope you're all well! 👋
+
+Something has been put on my heart recently, and I'd love to share it with you.
+
+I'm now offering lessons in guitar, singing and drums, plus mentoring for worship leaders and support for churches and worship teams. That could be one-to-one lessons, or me coming along to a band practice or rehearsal.
+
+If you know anyone who's been wanting to learn, or a worship leader or church that could use some support, please share this with them. 🙏
+
+I'm really looking forward to supporting people, both locally on the Isle of Wight and online.
+
+Everything you need to know is here 👉 [LINK]
+
+Thank you, friends! ❤️
+
+### Instagram
+
+Hey friends, hope you're all well! 👋
+
+Something has been put on my heart recently 🎸🎤🥁
+
+I'm now offering lessons in guitar, singing and drums, plus mentoring for worship leaders and support for churches and worship teams.
+
+If you know someone who'd love to learn, or a worship leader or church that could use some support, please share this with them 🙏
+
+Really looking forward to supporting people locally on the Isle of Wight and online.
+
+Link in bio ❤️
+
+#isleofwight #guitarlessons #singinglessons #drumlessons #worshipleader #worshipteam
+
+---
+
 ## Facebook (Isle of Wight community groups, your own page)
 
 🎸 Guitar, singing and drum lessons + worship leader & team mentoring on the Isle of Wight (or online) 🎤🥁
