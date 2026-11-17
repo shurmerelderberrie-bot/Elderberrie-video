@@ -33,7 +33,8 @@
     "render:reel": "remotion render Reel out/elderberrie-blue-reel.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
     "render:feed": "remotion render Feed out/elderberrie-blue-feed.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
     "render:square": "remotion render Square out/elderberrie-blue-square.mp4 --codec=h264 --pixel-format=yuv420p --audio-codec=aac",
-    "render:social": "npm run render:reel && npm run render:feed && npm run render:square"
+    "render:social": "npm run render:reel && npm run render:feed && npm run render:square",
+    "render:reels": "bash scripts/render-reels.sh"
   },
   "allowScripts": {
     "esbuild": false

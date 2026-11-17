@@ -15,6 +15,9 @@ import {
   getShowcaseDuration,
   type CardShowcaseProps,
 } from "./Social/CardShowcase";
+import { CARD_REEL_FRAMES, CardReel, cardReelSchema } from "./Social/CardReel";
+import { SITE_REEL_FRAMES, SiteReel, siteReelSchema } from "./Social/SiteReel";
+import { CARD_PRICE, reelCards, SITE_URL } from "./Social/cards";
 
 // Shared content for the Facebook & Instagram videos. Edit here, or live in
 // the Studio sidebar (npm run dev).
@@ -36,8 +39,8 @@ const showcaseDefaults: CardShowcaseProps = {
     { title: "Give", text: "Ready to gift, post or pop through a letterbox" },
   ],
   stepsFooter: "No post, no waiting.",
-  outroTitle: "Find us on Etsy",
-  shop: "ElderberrieBlue",
+  outroTitle: "Find us online",
+  shop: SITE_URL,
   instagram: "@elderberrieblueofficial",
   cta: "Shop the cards",
 };
@@ -140,9 +143,49 @@ export const RemotionRoot: React.FC = () => {
             title: "A berry happy birthday",
             photo: "products/berry.jpg",
             video: "products/berry.mp4",
-            shop: "elderberrieblue.etsy.com",
+            shop: SITE_URL,
           }}
         />
+      </Folder>
+      <Folder name="Website">
+        {/* 9:16 Reel: screen recording of the website in a phone */}
+        <Composition
+          id="SiteReel"
+          component={SiteReel}
+          schema={siteReelSchema}
+          durationInFrames={SITE_REEL_FRAMES}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{
+            intro: "Our new website is open",
+            homeCaption: "Every card painted by hand",
+            productCaption: `${CARD_PRICE} a card, ready in minutes`,
+            url: SITE_URL,
+            footnote: "Instant download for UK shoppers",
+          }}
+        />
+      </Folder>
+      <Folder name="Card-Reels">
+        {/* 9:16 Reel per card, from its website photos */}
+        {reelCards.map((card) => (
+          <Composition
+            key={card.slug}
+            id={`Card-${card.slug}`}
+            component={CardReel}
+            schema={cardReelSchema}
+            durationInFrames={CARD_REEL_FRAMES}
+            fps={30}
+            width={1080}
+            height={1920}
+            defaultProps={{
+              title: card.title,
+              folder: `cards/${card.slug}`,
+              price: CARD_PRICE,
+              url: SITE_URL,
+            }}
+          />
+        ))}
       </Folder>
       <Composition
         // You can take the "id" to render a video:
