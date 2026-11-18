@@ -17,6 +17,11 @@ import {
 } from "./Social/CardShowcase";
 import { CARD_REEL_FRAMES, CardReel, cardReelSchema } from "./Social/CardReel";
 import { SITE_REEL_FRAMES, SiteReel, siteReelSchema } from "./Social/SiteReel";
+import {
+  LAUNCH_REEL_FRAMES,
+  LaunchReel,
+  launchReelSchema,
+} from "./Social/LaunchReel";
 import { CARD_PRICE, reelCards, SITE_URL } from "./Social/cards";
 
 // Shared content for the Facebook & Instagram videos. Edit here, or live in
@@ -148,6 +153,38 @@ export const RemotionRoot: React.FC = () => {
         />
       </Folder>
       <Folder name="Website">
+        {/* 9:16 Reel announcing the website launch */}
+        <Composition
+          id="LaunchReel"
+          component={LaunchReel}
+          schema={launchReelSchema}
+          durationInFrames={LAUNCH_REEL_FRAMES}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{
+            kicker: "Big news from our kitchen table",
+            headline: "We've got a website!",
+            homeCaption: "Our own little card shop",
+            gridCaption: "Cards for every occasion",
+            gridCards: [
+              "gingham-christmas-tree-card",
+              "first-birthday-card-hip-hip-hooray",
+              "mistletoe-geese-christmas-card",
+              "new-baby-boy-card",
+              "golden-retriever-christmas-card",
+              "still-falling-for-you-anniversary-card",
+              "christmas-tree-card-jolly-and-bright",
+              "third-birthday-card-mouse",
+              "big-squeeze-orange-birthday-card",
+            ].map((slug) => `cards/${slug}`),
+            productCaption: `Every card ${CARD_PRICE}`,
+            steps: ["Download", "Print", "Fold", "Give"],
+            url: SITE_URL,
+            cta: "Tap the link in our bio",
+            signoff: "With love, Joe & Becca",
+          }}
+        />
         {/* 9:16 Reel: screen recording of the website in a phone */}
         <Composition
           id="SiteReel"

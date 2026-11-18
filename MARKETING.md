@@ -51,7 +51,12 @@ GitHub URLs.
 - `Card-<slug>` – 9:16 Reel from a card's website photos: in-hand photo, front
   flipping to the back, price and web address. Cards are listed in
   `src/Social/cards.ts`, photos in `public/cards/<slug>/`
-- `SiteReel` – 9:16 website announcement: phone screen captures of the
+- `LaunchReel` – 30s 9:16 website launch announcement: cards fly in around
+  "We've got a website!", homepage on a phone, grid of cards, product page
+  with the price, the four steps, web address and "link in our bio"
+- `SiteReel` – shorter 22s website Reel: phone screen captures of the
   homepage and a product page (`public/site/`)
 
 `npm run render:reels` renders all of the above into `social/reels/`.
+`node scripts/capture-site.js` re-records the phone clips in `public/site/`
+when the website changes (then re-render).

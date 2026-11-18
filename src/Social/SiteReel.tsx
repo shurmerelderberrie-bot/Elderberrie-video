@@ -65,7 +65,7 @@ const Caption: React.FC<{ text: string; duration: number }> = ({
   );
 };
 
-const Phone: React.FC<{ height: number; children: React.ReactNode }> = ({
+export const Phone: React.FC<{ height: number; children: React.ReactNode }> = ({
   height,
   children,
 }) => {

@@ -9,7 +9,8 @@ FLAGS=(--codec=h264 --pixel-format=yuv420p --log=error)
 
 render() { echo "-> $2"; npx remotion render "$1" "$OUT/$2.mp4" "${FLAGS[@]}" "${@:3}"; }
 
-# Website announcement
+# Website launch announcement, and the shorter website Reel
+render LaunchReel website-launch
 render SiteReel website
 
 # Card reels from website photos (one per entry in src/Social/cards.ts)
