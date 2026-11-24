@@ -18,6 +18,7 @@
 - Tagline: "pretty little bits for every occasion"
 - Selling point: printable, instant download – no post, no waiting
 - Sign-off: Joe & Becca, kitchen table on the Isle of Wight
+- **How the cards are made: Joe and Becca design every card themselves in Canva. They are NOT painted or hand-drawn.** Say "designed by us" or "our own designs". Never write painted, hand-painted, hand-drawn or watercolour paintings. Describing a design's look ("soft blue stripes") is fine.
 
 ## Pricing
 
@@ -42,6 +43,7 @@ GitHub URLs.
 - Claim the website on Pinterest (see the Pinterest guide in Drive)
 - Update Instagram bio link and Facebook page
 - When a "Coming soon" card becomes buyable, point its pins at its page
+- Remove the "hand-painted watercolour" claims from the site: page titles, homepage, shop, about and 50+ product descriptions. Full list with replacement wording: `social/website-wording-fixes.csv`. After that, re-capture `public/site/*.mp4` (`node scripts/capture-site.js`) and re-render the website reels, which show the old homepage text.
 
 ## Templates (npm run dev)
 

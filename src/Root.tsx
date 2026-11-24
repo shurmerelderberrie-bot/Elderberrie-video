@@ -196,7 +196,7 @@ export const RemotionRoot: React.FC = () => {
           height={1920}
           defaultProps={{
             intro: "Our new website is open",
-            homeCaption: "Every card painted by hand",
+            homeCaption: "Every card designed by us",
             productCaption: `${CARD_PRICE} a card, ready in minutes`,
             url: SITE_URL,
             footnote: "Instant download for UK shoppers",
