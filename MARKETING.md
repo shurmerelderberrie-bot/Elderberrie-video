@@ -62,3 +62,10 @@ GitHub URLs.
 `npm run render:reels` renders all of the above into `social/reels/`.
 `node scripts/capture-site.js` re-records the phone clips in `public/site/`
 when the website changes (then re-render).
+
+## Website traffic (Nov 2026)
+
+- Audit and fix list: `seo/AUDIT.md` (titles/descriptions to correct: `seo/title-and-description-fixes.csv`).
+- Articles for a "Card ideas" blog at /ideas/: `seo/articles/`. Copy them from the Customer Finder's Website traffic tab into the Client Hub.
+- Pinterest: approve pins in the Customer Finder, download the file, upload it at Pinterest Settings > Create Pins in bulk (desktop). Needs a business account; boards are created automatically.
+- The traffic builder scheduled task runs Monday and Thursday mornings.
